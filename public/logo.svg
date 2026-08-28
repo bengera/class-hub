@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" role="img" aria-labelledby="title desc">
+  <title id="title">ClassHub logo</title>
+  <desc id="desc">A navy and bright blue abstract linked-person symbol above the lowercase ClassHub wordmark.</desc>
+
+  <defs>
+    <linearGradient id="hubBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#28A8FF"/>
+      <stop offset="1" stop-color="#0877EE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Linked-person icon -->
+  <g id="icon" transform="translate(0 10)">
+    <!-- Heads -->
+    <circle cx="326" cy="146" r="47" fill="#102B5C"/>
+    <circle cx="474" cy="146" r="47" fill="url(#hubBlue)"/>
+
+    <!-- Left person: the inward sweep forms the first half of the link -->
+    <path fill="#102B5C" d="M322 217c-70 8-124 68-124 141 0 80 64 145 144 145 50 0 96-26 122-69l31-52-76-44-31 52a54 54 0 0 1-46 26c-31 0-57-26-57-58 0-27 19-50 44-56 19-4 33-21 33-40v-1c0-27-18-47-40-44Z"/>
+
+    <!-- Right person: mirrors and interlocks with the navy figure -->
+    <path fill="url(#hubBlue)" d="M478 217c70 8 124 68 124 141 0 80-64 145-144 145-50 0-96-26-122-69l-31-52 76-44 31 52a54 54 0 0 0 46 26c31 0 57-26 57-58 0-27-19-50-44-56-19-4-33-21-33-40v-1c0-27 18-47 40-44Z"/>
+
+    <!-- Handshake/link accent -->
+    <path d="M350 340l50-29 50 29-50 86Z" fill="#176FCA" opacity=".94"/>
+    <path d="M350 340l50-29v115Z" fill="#102B5C"/>
+    <path d="M450 340l-50-29v115Z" fill="url(#hubBlue)"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g id="wordmark" aria-label="classhub">
+    <text x="400" y="624" text-anchor="middle" font-family="Trebuchet MS, Arial, Helvetica, sans-serif" font-size="118" font-weight="700" letter-spacing="-6">
+      <tspan fill="#102B5C">class</tspan><tspan fill="#118CFA">hub</tspan>
+    </text>
+  </g>
+</svg>
