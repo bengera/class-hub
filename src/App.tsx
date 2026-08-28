@@ -5,7 +5,6 @@ function App() {
     <div className="app">
       <aside className="sidebar">
         <div className="logo">
-          <h1>Class Hub </h1>
           <img src="logo.svg" alt="logo" className="logo-img" />
         </div>
         <nav className="sidebar__nav">
@@ -43,7 +42,27 @@ function App() {
           </ul>
         </nav>
       </aside>
-      <main className="main"></main>
+      <main className="dashboard">
+        <header className="dashboard__header">
+          <div className="class-header__left-content">
+            <h1 className="class-header__title">
+              Project: Building an environmentally friendly museum
+            </h1>
+            <p className="class-header__class-code">Class code: AEX-0234</p>
+          </div>
+          <div className="class-header__right-content">
+            <div className="dashboard__header-actions">
+              <button className="dashboard__header-action">
+                Random Student
+              </button>
+              <button className="dashboard__header-action">Create teams</button>
+            </div>
+          </div>
+        </header>
+        <div className="student-list">
+          <p>List</p>
+        </div>
+      </main>
     </div>
   );
 }
