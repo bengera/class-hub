@@ -1,0 +1,76 @@
+{
+  "studentlist": [
+    {
+      "id": "d9351ca7-a5a5-41fc-870c-df0e4d726985",
+      "name": "Minh",
+      "points": 6,
+      "participation": "high"
+    },
+    {
+      "id": "7a21c832-4f16-48b5-91e2-a773bc610e42",
+      "name": "Linh",
+      "points": 3,
+      "participation": "medium"
+    },
+    {
+      "id": "b45d9210-87ac-4e36-b2f9-671c8a095d34",
+      "name": "Nam",
+      "points": 8,
+      "participation": "very high"
+    },
+    {
+      "id": "c8127f64-39b1-46a8-85de-2f109c7b53a1",
+      "name": "Trang",
+      "points": 1,
+      "participation": "low"
+    },
+    {
+      "id": "e39a1562-74dc-43b9-a518-9c276f08e641",
+      "name": "Huy",
+      "points": 5,
+      "participation": "medium"
+    },
+    {
+      "id": "1f76b293-c8a4-417e-963d-b50a82e71439",
+      "name": "Mai",
+      "points": 9,
+      "participation": "very high"
+    },
+    {
+      "id": "62e8c417-a531-4d79-b246-73f105c9e824",
+      "name": "Phuc",
+      "points": 2,
+      "participation": "very low"
+    },
+    {
+      "id": "a9473d52-6bc1-489f-90e7-d3148256fa73",
+      "name": "Thao",
+      "points": 7,
+      "participation": "high"
+    },
+    {
+      "id": "f5318a96-27e4-45bc-a103-8d649e72c315",
+      "name": "Khanh",
+      "points": 4,
+      "participation": "low"
+    },
+    {
+      "id": "38b62d15-e974-421f-b590-c1367a48d259",
+      "name": "Lan",
+      "points": 10,
+      "participation": "high"
+    },
+    {
+      "id": "95c1e743-8a62-4fb7-936d-e521a079c864",
+      "name": "Duc",
+      "points": 0,
+      "participation": "very low"
+    },
+    {
+      "id": "4d783a21-f659-42c8-a175-6b903e81d547",
+      "name": "Anh",
+      "points": 5,
+      "participation": "medium"
+    }
+  ]
+}
