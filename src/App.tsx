@@ -59,8 +59,42 @@ function App() {
             </div>
           </div>
         </header>
-        <div className="student-list">
-          <p>List</p>
+        <div className="student-register">
+          <p className="student-register__heading">Student List</p>
+          <p className="student-register__num-students">3 students</p>
+          <div className="student-register__names-list">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Points</th>
+                  <th scope="col">Participation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Minh</th>
+                  <td>6</td>
+                  <td>High</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Loan</th>
+                  <td>3</td>
+                  <td>Low</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Khang</th>
+                  <td>5</td>
+                  <td>Medium</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button className="student-list__add">Add Student</button>
         </div>
       </main>
     </div>

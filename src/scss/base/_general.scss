@@ -1,0 +1,45 @@
+@use "../abstracts/" as *;
+
+body {
+  min-height: 100dvh;
+  font-family: $font-family-base;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard {
+  border: 1px solid black;
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.sidebar {
+  border: 1px solid grey;
+  width: 200px;
+  padding: 1rem;
+}
+
+.logo-img {
+  height: 130px;
+}
+
+.student-register {
+  border: 1px solid black;
+  margin: 1rem;
+  border-radius: 5px;
+  padding: 1rem;
+}

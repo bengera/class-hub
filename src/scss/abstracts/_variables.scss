@@ -1,0 +1,117 @@
+// --------------------
+// Colors
+// --------------------
+
+// Primary
+$color-primary-600: #2563eb;
+$color-primary-700: #1d4ed8;
+
+// Semantic
+$color-success-500: #22c55e;
+$color-warning-500: #f59e0b;
+$color-danger-500: #ef4444;
+$color-info-500: #0ea5e9;
+
+// Accent
+$color-pink-500: #ec4899;
+$color-purple-500: #8b5cf6;
+$color-teal-500: #14b8a6;
+$color-sky-500: #0ea5e9;
+$color-orange-500: #f97316;
+
+// Neutrals
+$color-neutral-900: #111827;
+$color-neutral-700: #374151;
+$color-neutral-500: #6b7280;
+$color-neutral-300: #d1d5db;
+$color-neutral-100: #f3f4f6;
+$color-white: #ffffff;
+
+// Backgrounds
+$color-bg-page: #f8fafc;
+$color-bg-surface: $color-white;
+$color-bg-muted: $color-neutral-100;
+
+// Text
+$color-text-primary: $color-neutral-900;
+$color-text-secondary: $color-neutral-700;
+$color-text-muted: $color-neutral-500;
+$color-text-inverse: $color-white;
+
+// Borders
+$color-border: $color-neutral-300;
+$color-border-light: #e5e7eb;
+
+// --------------------
+// Team colors
+// --------------------
+
+$color-team-green: #22c55e;
+$color-team-blue: #3b82f6;
+$color-team-red: #ef4444;
+$color-team-purple: #8b5cf6;
+
+// --------------------
+// Typography
+// --------------------
+
+$font-family-base: "Poppins", sans-serif;
+
+$font-size-display-lg: 4rem;
+$font-size-display-md: 3.2rem;
+$font-size-heading-1: 2rem;
+$font-size-heading-2: 1.6rem;
+$font-size-subtitle-1: 1.4rem;
+$font-size-subtitle-2: 1.3rem;
+$font-size-body-1: 1.4rem;
+$font-size-body-2: 1.3rem;
+$font-size-caption: 1.2rem;
+$font-size-overline: 1.1rem;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+
+// --------------------
+// Spacing
+// --------------------
+
+$space-1: 0.4rem;
+$space-2: 0.8rem;
+$space-3: 1.2rem;
+$space-4: 1.6rem;
+$space-5: 2.4rem;
+$space-6: 3.2rem;
+$space-7: 4rem;
+$space-8: 4.8rem;
+$space-9: 6.4rem;
+
+// --------------------
+// Border radius
+// --------------------
+
+$radius-sm: 0.4rem;
+$radius-md: 0.8rem;
+$radius-lg: 1.2rem;
+$radius-xl: 1.6rem;
+$radius-2xl: 2.4rem;
+$radius-full: 9999px;
+
+// --------------------
+// Shadows
+// --------------------
+
+$shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+$shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
+$shadow-lg: 0 8px 24px rgb(0 0 0 / 0.1);
+
+// --------------------
+// Layout
+// --------------------
+
+$sidebar-width: 24rem;
+$container-max-width: 144rem;
