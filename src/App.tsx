@@ -1,6 +1,18 @@
+import { useState } from "react";
+import data from "../data.json";
 import "./scss/main.scss";
 
+type Student = {
+  id: string;
+  name: string;
+  points: number;
+  participation: "very low" | "low" | "medium" | "high" | "very high";
+};
+
 function App() {
+  const [studentList, setStudentList] = useState(data.studentlist);
+  console.log(data);
+  console.log(Array.isArray(data));
   return (
     <div className="app">
       <aside className="sidebar">
@@ -71,27 +83,17 @@ function App() {
                   <th scope="col">Participation</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Minh</th>
-                  <td>6</td>
-                  <td>High</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <th scope="row">Loan</th>
-                  <td>3</td>
-                  <td>Low</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <th scope="row">Khang</th>
-                  <td>5</td>
-                  <td>Medium</td>
-                </tr>
-              </tbody>
+              {studentList.map((student) => {
+                return (
+                  <tbody key={student.id}>
+                    <tr>
+                      <th scope="row">{student.name}</th>
+                      <td>{student.points}</td>
+                      <td>{student.participation}</td>
+                    </tr>
+                  </tbody>
+                );
+              })}
             </table>
           </div>
           <button className="student-list__add">Add Student</button>
