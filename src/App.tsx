@@ -11,8 +11,11 @@ type Student = {
 
 function App() {
   const [studentList, setStudentList] = useState(data.studentlist);
-  console.log(data);
-  console.log(Array.isArray(data));
+
+  function addStudent() {
+    console.log("student added");
+  }
+
   return (
     <div className="app">
       <aside className="sidebar">
@@ -73,7 +76,11 @@ function App() {
         </header>
         <div className="student-register">
           <p className="student-register__heading">Student List</p>
-          <p className="student-register__num-students">3 students</p>
+          <p className="student-register__num-students">
+            {studentList.length > 1
+              ? studentList.length + " students"
+              : "1 student"}
+          </p>
           <div className="student-register__names-list">
             <table>
               <thead>
@@ -96,7 +103,13 @@ function App() {
               })}
             </table>
           </div>
-          <button className="student-list__add">Add Student</button>
+          <button
+            type="button"
+            className="student-list__add"
+            onClick={() => addStudent()}
+          >
+            Add Student
+          </button>
         </div>
       </main>
     </div>

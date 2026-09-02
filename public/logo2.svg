@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">ClassHub logo</title>
+  <desc id="desc">Compact teal speech bubble closely surrounding a lowercase white ch monogram, with ClassHub wordmark below.</desc>
+
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+
+  <!-- Compact speech bubble -->
+  <path d="
+    M 445 175
+    H 755
+    C 790 175 818 203 818 238
+    V 390
+    C 818 425 790 453 755 453
+    H 620
+    L 555 510
+    V 453
+    H 445
+    C 410 453 382 425 382 390
+    V 238
+    C 382 203 410 175 445 175
+    Z"
+    fill="#25BFA6"/>
+
+  <!-- ch monogram -->
+  <text x="600" y="385"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="205"
+        font-weight="700"
+        letter-spacing="-15"
+        fill="#FFFFFF">ch</text>
+
+  <!-- Wordmark -->
+  <text x="600" y="690"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="142"
+        font-weight="600"
+        letter-spacing="-6">
+    <tspan fill="#0C1E57">class</tspan><tspan fill="#25BFA6">hub</tspan>
+  </text>
+</svg>
