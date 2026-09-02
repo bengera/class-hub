@@ -104,12 +104,21 @@ function App() {
                 </tr>
               </thead>
               {studentList.map((student) => {
+                const participationNum = student.participation;
                 return (
                   <tbody key={student.id}>
                     <tr>
                       <th scope="row">{student.name}</th>
                       <td>{student.points}</td>
-                      <td>{student.participation}</td>
+                      <td>
+                        <div className="participation-circles">
+                          {Array.from({ length: participationNum }).map(
+                            (_, idx) => (
+                              <div key={idx} className="circle"></div>
+                            ),
+                          )}
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 );
@@ -117,7 +126,7 @@ function App() {
             </table>
           </div>
           <form className="add-students" onSubmit={handleAddStudent}>
-            <label htmlFor="student name">Student name</label>
+            <label htmlFor="student name"></label>
             <input
               type="text"
               placeholder="Bob"

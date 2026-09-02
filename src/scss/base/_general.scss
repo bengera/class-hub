@@ -43,3 +43,16 @@ td {
   border-radius: 5px;
   padding: 1rem;
 }
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #3498db;
+}
+
+.participation-circles {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.3rem;
+}
