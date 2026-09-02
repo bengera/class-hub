@@ -6,14 +6,27 @@ type Student = {
   id: string;
   name: string;
   points: number;
-  participation: "very low" | "low" | "medium" | "high" | "very high";
+  participation: number;
 };
 
 function App() {
   const [studentList, setStudentList] = useState(data.studentlist);
+  const [newStudent, setNewStudent] = useState<string>("");
 
-  function addStudent() {
-    console.log("student added");
+  function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    console.log({ newStudent });
+
+    const newStudentData: Student = {
+      id: crypto.randomUUID(),
+      name: newStudent.trim(),
+      points: 0,
+      participation: 0,
+    };
+
+    setStudentList((prevList) => [...prevList, newStudentData]);
+    setNewStudent("");
   }
 
   return (
@@ -103,13 +116,16 @@ function App() {
               })}
             </table>
           </div>
-          <button
-            type="button"
-            className="student-list__add"
-            onClick={() => addStudent()}
-          >
-            Add Student
-          </button>
+          <form className="add-students" onSubmit={handleAddStudent}>
+            <label htmlFor="student name">Student name</label>
+            <input
+              type="text"
+              placeholder="Bob"
+              value={newStudent}
+              onChange={(e) => setNewStudent(e.target.value)}
+            />
+            <button className="student-list__add">Add Student</button>
+          </form>
         </div>
       </main>
     </div>
