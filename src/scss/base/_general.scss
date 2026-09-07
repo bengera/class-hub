@@ -48,11 +48,22 @@ td {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #3498db;
 }
 
 .participation-circles {
   display: flex;
   gap: 0.3rem;
   padding: 0.3rem;
+}
+
+.circle--low {
+  background-color: $color-danger-500;
+}
+
+.circle--medium {
+  background-color: $color-orange-500;
+}
+
+.circle--high {
+  background-color: $color-success-500;
 }

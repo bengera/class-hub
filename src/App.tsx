@@ -116,7 +116,16 @@ function App() {
                             length:
                               participationNum > 10 ? 10 : participationNum,
                           }).map((_, idx) => (
-                            <div key={idx} className="circle"></div>
+                            <div
+                              key={idx}
+                              className={
+                                participationNum <= 3
+                                  ? "circle circle--low"
+                                  : participationNum <= 6
+                                    ? "circle circle--medium"
+                                    : "circle circle--high"
+                              }
+                            />
                           ))}
                         </div>
                       </td>
