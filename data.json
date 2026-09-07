@@ -52,25 +52,25 @@
       "id": "f5318a96-27e4-45bc-a103-8d649e72c315",
       "name": "Khanh",
       "points": 4,
-      "participation": 2
+      "participation": 13
     },
     {
       "id": "38b62d15-e974-421f-b590-c1367a48d259",
       "name": "Lan",
       "points": 10,
-      "participation": 4
+      "participation": 8
     },
     {
       "id": "95c1e743-8a62-4fb7-936d-e521a079c864",
       "name": "Duc",
       "points": 0,
-      "participation": 1
+      "participation": 3
     },
     {
       "id": "4d783a21-f659-42c8-a175-6b903e81d547",
       "name": "Anh",
       "points": 5,
-      "participation": 3
+      "participation": 50
     }
   ]
 }
