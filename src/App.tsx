@@ -33,6 +33,15 @@ function App() {
     (a, b) => b.participation - a.participation,
   );
 
+  function runComparison(num: number, name: string) {
+    const compareToTen = num < 10 && 10 - num;
+    if (compareToTen === false) {
+      console.log(`${name} has no empty circles`);
+    } else {
+      console.log(`${name} has ${compareToTen} circles empty`);
+    }
+  }
+
   return (
     <div className="app">
       <aside className="sidebar">
@@ -112,6 +121,7 @@ function App() {
               <tbody>
                 {sortedStudents.map((student, idx) => {
                   const participationNum = student.participation;
+                  runComparison(participationNum, student.name);
                   return (
                     <tr key={student.id}>
                       <td>
