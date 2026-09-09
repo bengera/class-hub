@@ -29,6 +29,10 @@ function App() {
     setNewStudent("");
   }
 
+  const sortedStudents = [...studentList].sort(
+    (a, b) => b.participation - a.participation,
+  );
+
   return (
     <div className="app">
       <aside className="sidebar">
@@ -98,16 +102,21 @@ function App() {
             <table>
               <thead>
                 <tr>
+                  <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Points</th>
                   <th scope="col">Participation</th>
+                  <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {studentList.map((student) => {
+                {sortedStudents.map((student, idx) => {
                   const participationNum = student.participation;
                   return (
                     <tr key={student.id}>
+                      <td>
+                        <p className="index">{idx + 1}</p>
+                      </td>
                       <th scope="row">{student.name}</th>
                       <td>{student.points}</td>
                       <td>
@@ -128,6 +137,11 @@ function App() {
                             />
                           ))}
                         </div>
+                      </td>
+                      <td>
+                        <button>+1</button>
+                        <button>+ P</button>
+                        <button>...</button>
                       </td>
                     </tr>
                   );
