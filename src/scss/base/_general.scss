@@ -5,10 +5,14 @@ body {
   font-family: $font-family-base;
 }
 
-table,
-th,
-td {
+td,
+th {
   border: 1px solid black;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
 }
 
 .app {
@@ -38,10 +42,24 @@ td {
 }
 
 .student-register {
-  border: 1px solid black;
   margin: 1rem;
   border-radius: 5px;
   padding: 1rem;
+  justify-items: center;
+
+  &__index-cell {
+    text-align: center;
+  }
+
+  &__points-cell {
+    text-align: center;
+  }
+
+  &__participation-cell {
+    display: flex;
+    height: 50px;
+    align-items: center;
+  }
 }
 
 .circle {
@@ -52,7 +70,7 @@ td {
 
 .participation-circles {
   display: flex;
-  gap: 0.3rem;
+  gap: 0.6rem;
   padding: 0.3rem;
 }
 
@@ -66,4 +84,8 @@ td {
 
 .circle--high {
   background-color: $color-success-500;
+}
+
+.circle--empty {
+  background-color: rgb(206, 206, 206);
 }

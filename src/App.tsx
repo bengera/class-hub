@@ -34,12 +34,13 @@ function App() {
   );
 
   function runComparison(num: number, name: string) {
-    const compareToTen = num < 10 && 10 - num;
-    if (compareToTen === false) {
+    const emptyCircles = Math.max(0, 10 - num);
+    if (emptyCircles === 0) {
       console.log(`${name} has no empty circles`);
     } else {
-      console.log(`${name} has ${compareToTen} circles empty`);
+      console.log(`${name} has ${emptyCircles} circles empty`);
     }
+    return emptyCircles;
   }
 
   return (
@@ -121,15 +122,20 @@ function App() {
               <tbody>
                 {sortedStudents.map((student, idx) => {
                   const participationNum = student.participation;
-                  runComparison(participationNum, student.name);
+                  const emptyCircles = runComparison(
+                    participationNum,
+                    student.name,
+                  );
                   return (
                     <tr key={student.id}>
-                      <td>
+                      <td className="student-register__index-cell">
                         <p className="index">{idx + 1}</p>
                       </td>
                       <th scope="row">{student.name}</th>
-                      <td>{student.points}</td>
-                      <td>
+                      <td className="student-register__points-cell">
+                        {student.points}
+                      </td>
+                      <td className="student-register__participation-cell">
                         <div className="participation-circles">
                           {Array.from({
                             length:
@@ -147,7 +153,18 @@ function App() {
                             />
                           ))}
                         </div>
+                        <div className="participation-circles">
+                          {Array.from({
+                            length: emptyCircles,
+                          }).map((_, idx) => (
+                            <div
+                              key={idx}
+                              className="circle circle--empty"
+                            ></div>
+                          ))}
+                        </div>
                       </td>
+
                       <td>
                         <button>+1</button>
                         <button>+ P</button>
