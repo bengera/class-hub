@@ -43,11 +43,24 @@ function App() {
     return emptyCircles;
   }
 
-  function handleIncrement(targetStudent: Student) {
+  function incrementPoint(targetStudent: Student) {
     setStudentList((prev) =>
       prev.map((studentCurrent) =>
         studentCurrent.id === targetStudent.id
           ? { ...studentCurrent, points: studentCurrent.points + 1 }
+          : studentCurrent,
+      ),
+    );
+  }
+
+  function incrementParticipation(targetStudent: Student) {
+    setStudentList((prev) =>
+      prev.map((studentCurrent) =>
+        studentCurrent.id === targetStudent.id
+          ? {
+              ...studentCurrent,
+              participation: studentCurrent.participation + 1,
+            }
           : studentCurrent,
       ),
     );
@@ -178,11 +191,14 @@ function App() {
                       <td>
                         <button
                           className="actions__plus-point"
-                          onClick={() => handleIncrement(student)}
+                          onClick={() => incrementPoint(student)}
                         >
                           +1
                         </button>
-                        <button className="actions__plus-participation">
+                        <button
+                          className="actions__plus-participation"
+                          onClick={() => incrementParticipation(student)}
+                        >
                           + P
                         </button>
                         <button className="actions__edit-student">...</button>
