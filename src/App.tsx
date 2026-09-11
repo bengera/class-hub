@@ -7,6 +7,7 @@ type Student = {
   name: string;
   points: number;
   participation: number;
+  profileColor: string;
 };
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       name: newStudent.trim(),
       points: 0,
       participation: 0,
+      profileColor: "",
     };
 
     setStudentList((prevList) => [...prevList, newStudentData]);
@@ -149,12 +151,20 @@ function App() {
                     participationNum,
                     student.name,
                   );
+
                   return (
                     <tr key={student.id}>
                       <td className="student-register__index-cell">
                         <p className="index">{idx + 1}</p>
                       </td>
-                      <th scope="row">{student.name}</th>
+                      <th scope="row" className="student-register__row-name">
+                        <span
+                          className={`student-register__first-letter ${student.profileColor}`}
+                        >
+                          {student.name.charAt(0)}
+                        </span>
+                        {student.name}
+                      </th>
                       <td className="student-register__points-cell">
                         {student.points}
                       </td>

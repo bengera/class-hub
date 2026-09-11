@@ -1,14 +1,15 @@
 @use "../abstracts/" as *;
+@use "sass:map";
 
 body {
   min-height: 100dvh;
   font-family: $font-family-base;
 }
 
-td,
-th {
-  border: 1px solid black;
-}
+// td,
+// th {
+//   border: 1px solid black;
+// }
 
 th {
   text-align: left;
@@ -51,6 +52,23 @@ th {
     text-align: center;
   }
 
+  &__row-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__first-letter {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    padding: 1rem;
+    text-align: center;
+    color: $color-white;
+    line-height: 10px; // same as width and height
+  }
+
   &__points-cell {
     text-align: center;
   }
@@ -59,6 +77,27 @@ th {
     display: flex;
     height: 50px;
     align-items: center;
+  }
+}
+
+$profile-colors: (
+  "profilePink": $color-pink-500,
+  "profilePurple": $color-purple-500,
+  "profileTeal": $color-teal-500,
+  "profileSky": $color-sky-500,
+  "profileOrange": $color-orange-500,
+  "profileGreen": $color-green-500,
+  "profileIndigo": $color-indigo-500,
+  "profileRed": $color-red-500,
+  "profileCyan": $color-cyan-500,
+  "profileAmber": $color-amber-500,
+  "profileViolet": $color-violet-500,
+  "profileRose": $color-rose-500,
+);
+
+@each $color-name, $color-value in $profile-colors {
+  .#{$color-name} {
+    background-color: $color-value;
   }
 }
 
