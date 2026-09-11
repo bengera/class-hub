@@ -43,6 +43,16 @@ function App() {
     return emptyCircles;
   }
 
+  function handleIncrement(targetStudent: Student) {
+    setStudentList((prev) =>
+      prev.map((studentCurrent) =>
+        studentCurrent.id === targetStudent.id
+          ? { ...studentCurrent, points: studentCurrent.points + 1 }
+          : studentCurrent,
+      ),
+    );
+  }
+
   return (
     <div className="app">
       <aside className="sidebar">
@@ -166,9 +176,16 @@ function App() {
                       </td>
 
                       <td>
-                        <button>+1</button>
-                        <button>+ P</button>
-                        <button>...</button>
+                        <button
+                          className="actions__plus-point"
+                          onClick={() => handleIncrement(student)}
+                        >
+                          +1
+                        </button>
+                        <button className="actions__plus-participation">
+                          + P
+                        </button>
+                        <button className="actions__edit-student">...</button>
                       </td>
                     </tr>
                   );
