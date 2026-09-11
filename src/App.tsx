@@ -29,8 +29,8 @@ function App() {
     setNewStudent("");
   }
 
-  const sortedStudents = [...studentList].sort(
-    (a, b) => b.participation - a.participation,
+  const sortedStudents = [...studentList].sort((a, b) =>
+    a.name.localeCompare(b.name),
   );
 
   function runComparison(num: number, name: string) {
