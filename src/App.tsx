@@ -17,14 +17,32 @@ function App() {
   function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    console.log({ newStudent });
+    const profileColors = [
+      "profilePink",
+      "profilePurple",
+      "profileTeal",
+      "profileSky",
+      "profileOrange",
+      "profileGreen",
+      "profileIndigo",
+      "profileRed",
+      "profileCyan",
+      "profileAmber",
+      "profileViolet",
+      "profileRose",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * profileColors.length);
+    const randomColor = profileColors[randomIndex];
+    const capitilzedName =
+      newStudent.charAt(0).toUpperCase() + newStudent.slice(1);
 
     const newStudentData: Student = {
       id: crypto.randomUUID(),
-      name: newStudent.trim(),
+      name: capitilzedName.trim(),
       points: 0,
       participation: 0,
-      profileColor: "",
+      profileColor: randomColor,
     };
 
     setStudentList((prevList) => [...prevList, newStudentData]);
