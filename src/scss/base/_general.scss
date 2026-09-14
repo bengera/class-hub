@@ -46,7 +46,7 @@ th {
   margin: 1rem;
   border-radius: 5px;
   padding: 1rem;
-  justify-items: center;
+  justify-items: left;
 
   &__index-cell {
     text-align: center;
@@ -55,18 +55,19 @@ th {
   &__row-name {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
 
   &__first-letter {
-    width: 10px;
-    height: 10px;
     border-radius: 50%;
     background-color: red;
     padding: 1rem;
     text-align: center;
     color: $color-white;
-    line-height: 10px; // same as width and height
+    width: 13px;
+    height: 13px;
+    font-size: 17px;
+    line-height: 13px;
   }
 
   &__points-cell {
