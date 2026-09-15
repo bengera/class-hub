@@ -1,17 +1,19 @@
-type Student = {
+import { useState } from "react";
+
+interface Student {
   id: string;
   name: string;
   points: number;
   participation: number;
   profileColor: string;
-};
+}
 
-type RegisterProps = {
+interface RegisterProps {
   studentList: Student[];
   setStudentList: React.Dispatch<React.SetStateAction<Student[]>>;
   newStudent: string;
   setNewStudent: React.Dispatch<React.SetStateAction<string>>;
-};
+}
 
 export function Register({
   studentList,
@@ -58,6 +60,10 @@ export function Register({
     a.name.localeCompare(b.name),
   );
 
+  const handleChangeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedFilterVal(e.target.value);
+  };
+
   function runComparison(num: number, name: string) {
     const emptyCircles = Math.max(0, 10 - num);
     if (emptyCircles === 0) {
@@ -90,6 +96,8 @@ export function Register({
       ),
     );
   }
+
+  const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
   return (
     <div className="student-register">
       <p className="student-register__heading">Student List</p>
@@ -98,11 +106,12 @@ export function Register({
           ? studentList.length + " students"
           : "1 student"}
       </p>
-      <select>
+      <select value={selectedFilterVal} onChange={handleChangeFilter}>
         <option value="name">name</option>
         <option value="points">points</option>
         <option value="participation">participation</option>
       </select>
+      <p>{`${selectedFilterVal} selected`}</p>
       <div className="student-register__names-list">
         <table>
           <thead>
