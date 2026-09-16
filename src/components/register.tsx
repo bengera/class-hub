@@ -56,9 +56,17 @@ export function Register({
     setNewStudent("");
   }
 
-  const sortedStudents = [...studentList].sort((a, b) =>
-    a.name.localeCompare(b.name),
-  );
+  const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
+
+  const sortedStudents = [...studentList].sort((a, b) => {
+    if (selectedFilterVal === "points") {
+      return b.points - a.points;
+    } else if (selectedFilterVal === "participation") {
+      return b.participation - a.participation;
+    } else {
+      return a.name.localeCompare(b.name);
+    }
+  });
 
   function handleChangeFilter(e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedFilterVal(e.target.value);
@@ -97,7 +105,6 @@ export function Register({
     );
   }
 
-  const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
   return (
     <div className="student-register">
       <p className="student-register__heading">Student List</p>
