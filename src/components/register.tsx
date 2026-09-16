@@ -73,7 +73,7 @@ export function Register({
   }
 
   function runComparison(num: number, name: string) {
-    const emptyCircles = Math.max(0, 10 - num);
+    const emptyCircles = Math.max(0, 5 - num);
     if (emptyCircles === 0) {
       console.log(`${name} has no empty circles`);
     } else {
@@ -157,14 +157,14 @@ export function Register({
                   <td className="student-register__participation-cell">
                     <div className="participation-circles">
                       {Array.from({
-                        length: participationNum > 10 ? 10 : participationNum,
+                        length: participationNum > 5 ? 5 : participationNum,
                       }).map((_, idx) => (
                         <div
                           key={idx}
                           className={
                             participationNum <= 3
                               ? "circle circle--low"
-                              : participationNum <= 6
+                              : participationNum <= 4
                                 ? "circle circle--medium"
                                 : "circle circle--high"
                           }
