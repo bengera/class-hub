@@ -60,9 +60,9 @@ export function Register({
     a.name.localeCompare(b.name),
   );
 
-  const handleChangeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  function handleChangeFilter(e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedFilterVal(e.target.value);
-  };
+  }
 
   function runComparison(num: number, name: string) {
     const emptyCircles = Math.max(0, 10 - num);
