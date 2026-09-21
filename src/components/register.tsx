@@ -105,20 +105,38 @@ export function Register({
     );
   }
 
+  function handleDelete(targetStudent: Student) {
+    setStudentList(
+      studentList.filter((student) => student.id !== targetStudent.id),
+    );
+  }
+
   return (
     <div className="student-register">
-      <p className="student-register__heading">Student List</p>
-      <p className="student-register__num-students">
-        {studentList.length > 1
-          ? studentList.length + " students"
-          : "1 student"}
-      </p>
+      <div className="student-register__top-bar">
+        <p className="student-register__heading">Students</p>
+        <p className="student-register__num-students">
+          {studentList.length > 1
+            ? studentList.length + " students"
+            : "1 student"}
+        </p>
+      </div>
+      <form className="add-students" onSubmit={handleAddStudent}>
+        <label htmlFor="student name"></label>
+        <input
+          type="text"
+          placeholder="Bob"
+          value={newStudent}
+          onChange={(e) => setNewStudent(e.target.value)}
+        />
+        <button className="student-list__add">Add Student</button>
+      </form>
       <select value={selectedFilterVal} onChange={handleChangeFilter}>
         <option value="name">name</option>
         <option value="points">points</option>
         <option value="participation">participation</option>
       </select>
-      <p>{`${selectedFilterVal} selected`}</p>
+
       <div className="student-register__names-list">
         <table>
           <thead>
@@ -193,7 +211,12 @@ export function Register({
                     >
                       + P
                     </button>
-                    <button className="actions__edit-student">...</button>
+                    <button
+                      className="actions__delete-student"
+                      onClick={() => handleDelete(student)}
+                    >
+                      ❌
+                    </button>
                   </td>
                 </tr>
               );
@@ -201,16 +224,6 @@ export function Register({
           </tbody>
         </table>
       </div>
-      <form className="add-students" onSubmit={handleAddStudent}>
-        <label htmlFor="student name"></label>
-        <input
-          type="text"
-          placeholder="Bob"
-          value={newStudent}
-          onChange={(e) => setNewStudent(e.target.value)}
-        />
-        <button className="student-list__add">Add Student</button>
-      </form>
     </div>
   );
 }
