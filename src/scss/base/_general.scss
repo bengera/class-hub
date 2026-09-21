@@ -13,11 +13,6 @@ body {
   // line-height: $line-height-base;
 }
 
-td,
-th {
-  border: 1px solid black;
-}
-
 button {
   cursor: pointer;
 }
@@ -28,6 +23,7 @@ th {
 
 table {
   width: 100%;
+  margin-top: 2rem;
 }
 
 .app {
@@ -66,23 +62,26 @@ table {
     text-align: center;
   }
 
+  &__heading {
+  }
+
   &__row-name {
   }
 
   &__first-letter {
-    border-radius: $radius-md;
-    padding: 1.5rem;
+    margin-right: 18px;
+    display: inline-block;
+    border-radius: $radius-full;
     text-align: center;
     color: $color-white;
-    width: 13px;
-    height: 13px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
     font-size: 17px;
-    line-height: 13px;
-    margin-right: 10px;
   }
 
   &__points-cell {
-    text-align: center;
+    // text-align: center;
   }
 
   &__participation-cell {
@@ -95,6 +94,10 @@ table {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 40px;
+  }
+
+  &__dropdown {
+    grid-column: 3/3;
   }
 
   &__toolbar-left {

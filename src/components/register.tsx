@@ -130,9 +130,13 @@ export function Register({
             value={newStudent}
             onChange={(e) => setNewStudent(e.target.value)}
           />
-          <button className="student-list__add">Add Student</button>
+          <button className="student-register__add-btn">Add Student</button>
         </form>
-        <select value={selectedFilterVal} onChange={handleChangeFilter}>
+        <select
+          value={selectedFilterVal}
+          onChange={handleChangeFilter}
+          className="student-register__dropdown"
+        >
           <option disabled>Sort by:</option>
           <option value="name">name</option>
           <option value="points">points</option>
