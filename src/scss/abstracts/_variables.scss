@@ -1,3 +1,25 @@
+// Typography
+$font-family-primary: "Inter", sans-serif;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font sizes
+$font-size-xs: 1.2rem;
+$font-size-sm: 1.4rem;
+$font-size-base: 1.6rem;
+$font-size-lg: 1.8rem;
+$font-size-xl: 2.4rem;
+$font-size-2xl: 3.2rem;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-base: 1.5;
+$line-height-relaxed: 1.7;
+
 // --------------------
 // Colors
 // --------------------
@@ -68,8 +90,6 @@ $color-team-purple: #8b5cf6;
 // --------------------
 // Typography
 // --------------------
-
-$font-family-base: "Poppins", sans-serif;
 
 $font-size-display-lg: 4rem;
 $font-size-display-md: 3.2rem;

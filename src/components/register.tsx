@@ -113,30 +113,37 @@ export function Register({
 
   return (
     <div className="student-register">
-      <div className="student-register__top-bar">
-        <p className="student-register__heading">Students</p>
-        <p className="student-register__num-students">
-          {studentList.length > 1
-            ? studentList.length + " students"
-            : "1 student"}
-        </p>
-      </div>
-      <form className="add-students" onSubmit={handleAddStudent}>
-        <label htmlFor="student name"></label>
+      <div className="student-register__toolbar">
+        <div className="student-register__toolbar-left">
+          <p className="student-register__heading">Students</p>
+          <p className="student-register__num-students">
+            {studentList.length > 1
+              ? studentList.length + " students"
+              : "1 student"}
+          </p>
+        </div>
+        <form className="add-students" onSubmit={handleAddStudent}>
+          <label htmlFor="student name"></label>
+          <input
+            type="text"
+            placeholder="Bob"
+            value={newStudent}
+            onChange={(e) => setNewStudent(e.target.value)}
+          />
+          <button className="student-list__add">Add Student</button>
+        </form>
+        <select value={selectedFilterVal} onChange={handleChangeFilter}>
+          <option disabled>Sort by:</option>
+          <option value="name">name</option>
+          <option value="points">points</option>
+          <option value="participation">participation</option>
+        </select>
         <input
-          type="text"
-          placeholder="Bob"
-          value={newStudent}
-          onChange={(e) => setNewStudent(e.target.value)}
+          type="search"
+          className="student-register__searchbar"
+          placeholder="Search students"
         />
-        <button className="student-list__add">Add Student</button>
-      </form>
-      <select value={selectedFilterVal} onChange={handleChangeFilter}>
-        <option value="name">name</option>
-        <option value="points">points</option>
-        <option value="participation">participation</option>
-      </select>
-
+      </div>
       <div className="student-register__names-list">
         <table>
           <thead>

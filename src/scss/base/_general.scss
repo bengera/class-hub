@@ -1,15 +1,22 @@
 @use "../abstracts/" as *;
 @use "sass:map";
 
-body {
-  min-height: 100dvh;
-  font-family: $font-family-base;
+html {
+  font-size: 62.5%;
 }
 
-// td,
-// th {
-//   border: 1px solid black;
-// }
+body {
+  min-height: 100dvh;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  // line-height: $line-height-base;
+}
+
+td,
+th {
+  border: 1px solid black;
+}
 
 button {
   cursor: pointer;
@@ -17,7 +24,10 @@ button {
 
 th {
   text-align: left;
-  padding: 5px;
+}
+
+table {
+  width: 100%;
 }
 
 .app {
@@ -57,21 +67,18 @@ th {
   }
 
   &__row-name {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
   }
 
   &__first-letter {
-    border-radius: 50%;
-    background-color: red;
-    padding: 1rem;
+    border-radius: $radius-md;
+    padding: 1.5rem;
     text-align: center;
     color: $color-white;
     width: 13px;
     height: 13px;
     font-size: 17px;
     line-height: 13px;
+    margin-right: 10px;
   }
 
   &__points-cell {
@@ -84,10 +91,26 @@ th {
     align-items: center;
   }
 
-  &__top-bar {
+  &__toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 40px;
+  }
+
+  &__toolbar-left {
     display: flex;
     gap: 1rem;
   }
+
+  &__searchbar {
+    grid-row: 2/2;
+    border: 1px solid $color-neutral-300;
+    border-radius: $radius-md;
+  }
+}
+
+.add-students {
+  grid-column: 3/3;
 }
 
 $profile-colors: (
