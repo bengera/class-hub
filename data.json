@@ -2,86 +2,117 @@
   "studentlist": [
     {
       "id": "d9351ca7-a5a5-41fc-870c-df0e4d726985",
-      "name": "Minh",
-      "points": 6,
+      "name": "Minh Nguyen",
       "participation": 4,
+      "understanding": "secure",
+      "followUp": false,
+      "notes": [],
       "profileColor": "profileCyan"
     },
     {
       "id": "7a21c832-4f16-48b5-91e2-a773bc610e42",
-      "name": "Linh",
-      "points": 3,
-      "participation": 3,
+      "name": "Sofia Martinez",
+      "participation": 2,
+      "understanding": "developing",
+      "followUp": true,
+      "notes": [
+        "Understood the main idea but needed prompting to explain her answer."
+      ],
       "profileColor": "profileRose"
     },
     {
       "id": "b45d9210-87ac-4e36-b2f9-671c8a095d34",
-      "name": "Nam",
-      "points": 8,
-      "participation": 5,
+      "name": "Daniel Kim",
+      "participation": 2,
+      "understanding": "needsSupport",
+      "followUp": true,
+      "notes": [
+        "Struggled to identify supporting evidence.",
+        "Revisit the example from the reading task."
+      ],
       "profileColor": "profileGreen"
     },
     {
       "id": "c8127f64-39b1-46a8-85de-2f109c7b53a1",
-      "name": "Trang",
-      "points": 1,
-      "participation": 2,
+      "name": "Aisha Rahman",
+      "participation": 1,
+      "understanding": "developing",
+      "followUp": true,
+      "notes": ["Quiet during group discussion."],
       "profileColor": "profilePurple"
     },
     {
       "id": "e39a1562-74dc-43b9-a518-9c276f08e641",
-      "name": "Huy",
-      "points": 5,
+      "name": "Lucas Silva",
       "participation": 3,
+      "understanding": "secure",
+      "followUp": false,
+      "notes": [],
       "profileColor": "profileOrange"
     },
     {
       "id": "1f76b293-c8a4-417e-963d-b50a82e71439",
-      "name": "Mai",
-      "points": 9,
+      "name": "Yuki Tanaka",
       "participation": 5,
+      "understanding": "secure",
+      "followUp": false,
+      "notes": ["Gave a clear explanation using evidence from the text."],
       "profileColor": "profilePink"
     },
     {
       "id": "62e8c417-a531-4d79-b246-73f105c9e824",
-      "name": "Phuc",
-      "points": 2,
+      "name": "Oliver Smith",
       "participation": 1,
+      "understanding": "needsSupport",
+      "followUp": true,
+      "notes": [
+        "Had difficulty explaining why the evidence supported the answer."
+      ],
       "profileColor": "profileIndigo"
     },
     {
       "id": "a9473d52-6bc1-489f-90e7-d3148256fa73",
-      "name": "Thao",
-      "points": 7,
+      "name": "Priya Patel",
       "participation": 4,
+      "understanding": "secure",
+      "followUp": false,
+      "notes": [],
       "profileColor": "profileAmber"
     },
     {
       "id": "f5318a96-27e4-45bc-a103-8d649e72c315",
-      "name": "Khanh",
-      "points": 4,
-      "participation": 13,
+      "name": "Noah Williams",
+      "participation": 3,
+      "understanding": "developing",
+      "followUp": false,
+      "notes": ["Correct answer but explanation lacked detail."],
       "profileColor": "profileTeal"
     },
     {
       "id": "38b62d15-e974-421f-b590-c1367a48d259",
-      "name": "Lan",
-      "points": 10,
-      "participation": 8,
+      "name": "Emma Johansson",
+      "participation": 5,
+      "understanding": "secure",
+      "followUp": false,
+      "notes": [],
       "profileColor": "profileViolet"
     },
     {
       "id": "95c1e743-8a62-4fb7-936d-e521a079c864",
-      "name": "Duc",
-      "points": 0,
-      "participation": 3,
+      "name": "Ahmed Hassan",
+      "participation": 2,
+      "understanding": "developing",
+      "followUp": true,
+      "notes": ["Needed additional time to complete the reading task."],
       "profileColor": "profileRed"
     },
     {
       "id": "4d783a21-f659-42c8-a175-6b903e81d547",
-      "name": "Anh",
-      "points": 5,
-      "participation": 50,
+      "name": "Claire Dubois",
+      "participation": 4,
+      "understanding": "secure",
+      "followUp": false,
+      "notes": ["Confident contribution during partner discussion."],
       "profileColor": "profileSky"
     }
   ]

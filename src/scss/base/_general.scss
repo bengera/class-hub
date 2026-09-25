@@ -117,23 +117,60 @@ table {
 }
 
 $profile-colors: (
-  "profilePink": $color-pink-500,
-  "profilePurple": $color-purple-500,
-  "profileTeal": $color-teal-500,
-  "profileSky": $color-sky-500,
-  "profileOrange": $color-orange-500,
-  "profileGreen": $color-green-500,
-  "profileIndigo": $color-indigo-500,
-  "profileRed": $color-red-500,
-  "profileCyan": $color-cyan-500,
-  "profileAmber": $color-amber-500,
-  "profileViolet": $color-violet-500,
-  "profileRose": $color-rose-500,
+  "profilePink": (
+    background: $color-profile-pink,
+    text: $color-profile-pink-text,
+  ),
+  "profilePurple": (
+    background: $color-profile-purple,
+    text: $color-profile-purple-text,
+  ),
+  "profileTeal": (
+    background: $color-profile-teal,
+    text: $color-profile-teal-text,
+  ),
+  "profileSky": (
+    background: $color-profile-sky,
+    text: $color-profile-sky-text,
+  ),
+  "profileOrange": (
+    background: $color-profile-orange,
+    text: $color-profile-orange-text,
+  ),
+  "profileGreen": (
+    background: $color-profile-green,
+    text: $color-profile-green-text,
+  ),
+  "profileIndigo": (
+    background: $color-profile-indigo,
+    text: $color-profile-indigo-text,
+  ),
+  "profileRed": (
+    background: $color-profile-red,
+    text: $color-profile-red-text,
+  ),
+  "profileCyan": (
+    background: $color-profile-cyan,
+    text: $color-profile-cyan-text,
+  ),
+  "profileAmber": (
+    background: $color-profile-amber,
+    text: $color-profile-amber-text,
+  ),
+  "profileViolet": (
+    background: $color-profile-violet,
+    text: $color-profile-violet-text,
+  ),
+  "profileRose": (
+    background: $color-profile-rose,
+    text: $color-profile-rose-text,
+  ),
 );
 
 @each $color-name, $color-value in $profile-colors {
   .#{$color-name} {
-    background-color: $color-value;
+    background-color: map.get($color-value, background);
+    color: map.get($color-value, text);
   }
 }
 
@@ -149,18 +186,10 @@ $profile-colors: (
   padding: 0.3rem;
 }
 
-.circle--low {
-  background-color: $color-danger-500;
-}
-
-.circle--medium {
-  background-color: $color-orange-500;
-}
-
-.circle--high {
-  background-color: $color-success-500;
+.circle--fill {
+  background-color: $color-primary-500;
 }
 
 .circle--empty {
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(224, 222, 222);
 }

@@ -3,8 +3,10 @@ import { useState } from "react";
 interface Student {
   id: string;
   name: string;
-  points: number;
   participation: number;
+  understanding: "secure" | "developing" | "needsSupport";
+  followUp: boolean;
+  notes: [];
   profileColor: string;
 }
 
@@ -47,8 +49,10 @@ export function Register({
     const newStudentData: Student = {
       id: crypto.randomUUID(),
       name: capitilzedName.trim(),
-      points: 0,
       participation: 0,
+      understanding: "developing",
+      followUp: false,
+      notes: [],
       profileColor: randomColor,
     };
 
@@ -59,9 +63,7 @@ export function Register({
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
 
   const sortedStudents = [...studentList].sort((a, b) => {
-    if (selectedFilterVal === "points") {
-      return b.points - a.points;
-    } else if (selectedFilterVal === "participation") {
+    if (selectedFilterVal === "participation") {
       return b.participation - a.participation;
     } else {
       return a.name.localeCompare(b.name);
@@ -80,16 +82,6 @@ export function Register({
       console.log(`${name} has ${emptyCircles} circles empty`);
     }
     return emptyCircles;
-  }
-
-  function incrementPoint(targetStudent: Student) {
-    setStudentList((prev) =>
-      prev.map((studentCurrent) =>
-        studentCurrent.id === targetStudent.id
-          ? { ...studentCurrent, points: studentCurrent.points + 1 }
-          : studentCurrent,
-      ),
-    );
   }
 
   function incrementParticipation(targetStudent: Student) {
@@ -139,7 +131,6 @@ export function Register({
         >
           <option disabled>Sort by:</option>
           <option value="name">name</option>
-          <option value="points">points</option>
           <option value="participation">participation</option>
         </select>
         <input
@@ -154,9 +145,10 @@ export function Register({
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Points</th>
               <th scope="col">Participation</th>
-              <th scope="col">Actions</th>
+              <th scope="col">Understanding</th>
+              <th scope="col">Follow-up</th>
+              <th scope="col">Notes</th>
             </tr>
           </thead>
           <tbody>
@@ -180,24 +172,13 @@ export function Register({
                     </span>
                     {student.name}
                   </th>
-                  <td className="student-register__points-cell">
-                    {student.points}
-                  </td>
+
                   <td className="student-register__participation-cell">
                     <div className="participation-circles">
                       {Array.from({
                         length: participationNum > 5 ? 5 : participationNum,
                       }).map((_, idx) => (
-                        <div
-                          key={idx}
-                          className={
-                            participationNum <= 3
-                              ? "circle circle--low"
-                              : participationNum <= 4
-                                ? "circle circle--medium"
-                                : "circle circle--high"
-                          }
-                        />
+                        <div key={idx} className="circle circle--fill" />
                       ))}
                     </div>
                     <div className="participation-circles">
@@ -207,21 +188,15 @@ export function Register({
                         <div key={idx} className="circle circle--empty"></div>
                       ))}
                     </div>
-                  </td>
-
-                  <td>
-                    <button
-                      className="actions__plus-point"
-                      onClick={() => incrementPoint(student)}
-                    >
-                      +1
-                    </button>
                     <button
                       className="actions__plus-participation"
                       onClick={() => incrementParticipation(student)}
                     >
                       + P
                     </button>
+                  </td>
+
+                  <td>
                     <button
                       className="actions__delete-student"
                       onClick={() => handleDelete(student)}

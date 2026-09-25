@@ -24,68 +24,93 @@ $line-height-relaxed: 1.7;
 // Colors
 // --------------------
 
-// Primary
-$color-primary-600: #2563eb;
-$color-primary-700: #1d4ed8;
+// Primary / Brand
+$color-primary-50: #f5f3ff;
+$color-primary-100: #ede9fe;
+$color-primary-200: #ddd6fe;
+$color-primary-500: #7c5ce7;
+$color-primary-600: #6d4ed8;
+$color-primary-700: #5b3cc4;
 
-// Semantic
-$color-success-500: #22c55e;
-$color-warning-500: #f59e0b;
-$color-danger-500: #ef4444;
-$color-info-500: #0ea5e9;
+// Semantic - strong
+$color-success-500: #22a866;
+$color-warning-500: #e6a817;
+$color-danger-500: #e05263;
+$color-info-500: #4f8fe8;
 
-// Accent
-$color-pink-500: #ec4899;
-$color-purple-500: #8b5cf6;
-$color-teal-500: #14b8a6;
-$color-sky-500: #0ea5e9;
-$color-orange-500: #f97316;
+// Semantic - light backgrounds
+$color-success-100: #dff7e9;
+$color-warning-100: #fff1c7;
+$color-danger-100: #fde2e6;
+$color-info-100: #e3efff;
 
-// First letter colors
-$color-pink-500: #ec4899;
-$color-purple-500: #8b5cf6;
-$color-teal-500: #14b8a6;
-$color-sky-500: #0ea5e9;
-$color-orange-500: #f97316;
-$color-green-500: #22c55e;
-$color-indigo-500: #6366f1;
-$color-red-500: #ef4444;
-$color-cyan-500: #06b6d4;
-$color-amber-500: #f59e0b;
-$color-violet-500: #a855f7;
-$color-rose-500: #f43f5e;
+// --------------------
+// Profile backgrounds
+// --------------------
+
+$color-profile-pink: #f78fc7;
+$color-profile-purple: #b9a3fb;
+$color-profile-teal: #7eead9;
+$color-profile-sky: #9fdcff;
+$color-profile-orange: #f9a85f;
+$color-profile-green: #9ee8b8;
+$color-profile-indigo: #b3c0fb;
+$color-profile-red: #f6aaaa;
+$color-profile-cyan: #8be8f4;
+$color-profile-amber: #f9d86f;
+$color-profile-violet: #cdbdf8;
+$color-profile-rose: #f8b3bd;
+
+// --------------------
+// Profile text
+// --------------------
+
+$color-profile-pink-text: #9d174d;
+$color-profile-purple-text: #5b21b6;
+$color-profile-teal-text: #115e59;
+$color-profile-sky-text: #075985;
+$color-profile-orange-text: #9a3412;
+$color-profile-green-text: #166534;
+$color-profile-indigo-text: #3730a3;
+$color-profile-red-text: #991b1b;
+$color-profile-cyan-text: #155e75;
+$color-profile-amber-text: #854d0e;
+$color-profile-violet-text: #6b21a8;
+$color-profile-rose-text: #9f1239;
+
+// Semantic text
+$color-success-700: #147a48;
+$color-warning-700: #946200;
+$color-danger-700: #b4233c;
+$color-info-700: #2864b7;
 
 // Neutrals
-$color-neutral-900: #111827;
-$color-neutral-700: #374151;
-$color-neutral-500: #6b7280;
-$color-neutral-300: #d1d5db;
-$color-neutral-100: #f3f4f6;
+$color-neutral-950: #111827;
+$color-neutral-800: #1f2937;
+$color-neutral-600: #64748b;
+$color-neutral-400: #94a3b8;
+$color-neutral-300: #cbd5e1;
+$color-neutral-200: #e2e8f0;
+$color-neutral-100: #f1f5f9;
+$color-neutral-50: #f8fafc;
+
 $color-white: #ffffff;
 
 // Backgrounds
-$color-bg-page: #f8fafc;
+$color-bg-page: #f7f8fc;
 $color-bg-surface: $color-white;
-$color-bg-muted: $color-neutral-100;
+$color-bg-muted: #f8fafc;
+$color-bg-purple-subtle: $color-primary-50;
 
 // Text
-$color-text-primary: $color-neutral-900;
-$color-text-secondary: $color-neutral-700;
-$color-text-muted: $color-neutral-500;
+$color-text-primary: $color-neutral-950;
+$color-text-secondary: $color-neutral-600;
+$color-text-muted: $color-neutral-400;
 $color-text-inverse: $color-white;
 
 // Borders
-$color-border: $color-neutral-300;
-$color-border-light: #e5e7eb;
-
-// --------------------
-// Team colors
-// --------------------
-
-$color-team-green: #22c55e;
-$color-team-blue: #3b82f6;
-$color-team-red: #ef4444;
-$color-team-purple: #8b5cf6;
+$color-border: $color-neutral-200;
+$color-border-light: #edf0f5;
 
 // --------------------
 // Typography
