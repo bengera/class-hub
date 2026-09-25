@@ -97,11 +97,13 @@ export function Register({
     );
   }
 
-  function handleDelete(targetStudent: Student) {
-    setStudentList(
-      studentList.filter((student) => student.id !== targetStudent.id),
-    );
+  function handleChangeUnderstanding(targetStudent: Student) {
+    console.log("changing understanding");
+    console.log(targetStudent);
   }
+
+  const [selectedUnderstanding, setSelectedUnderstanding] =
+    useState<string>("secure");
 
   return (
     <div className="student-register">
@@ -192,17 +194,20 @@ export function Register({
                       className="actions__plus-participation"
                       onClick={() => incrementParticipation(student)}
                     >
-                      + P
+                      +
                     </button>
                   </td>
 
                   <td>
-                    <button
-                      className="actions__delete-student"
-                      onClick={() => handleDelete(student)}
+                    <select
+                      value={selectedUnderstanding}
+                      onChange={handleChangeUnderstanding}
+                      className="student-register__dropdown-understanding"
                     >
-                      ❌
-                    </button>
+                      <option value="name">Secure</option>
+                      <option value="developing">Developing</option>
+                      <option value="needs support">Needs Support</option>
+                    </select>
                   </td>
                 </tr>
               );

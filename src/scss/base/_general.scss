@@ -24,6 +24,13 @@ th {
 table {
   width: 100%;
   margin-top: 2rem;
+  border: 1px solid black;
+}
+
+th,
+tr,
+td {
+  border: 1px solid black;
 }
 
 .app {
@@ -66,6 +73,7 @@ table {
   }
 
   &__row-name {
+    width: 250px;
   }
 
   &__first-letter {
