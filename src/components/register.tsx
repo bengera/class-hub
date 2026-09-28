@@ -1,14 +1,5 @@
 import { useState } from "react";
-
-interface Student {
-  id: string;
-  name: string;
-  participation: number;
-  understanding: "secure" | "developing" | "needsSupport";
-  followUp: boolean;
-  notes: [];
-  profileColor: string;
-}
+import type { Student } from "../types/student";
 
 interface RegisterProps {
   studentList: Student[];
@@ -97,13 +88,12 @@ export function Register({
     );
   }
 
-  function handleChangeUnderstanding(targetStudent: Student) {
-    console.log("changing understanding");
-    console.log(targetStudent);
-  }
-
   const [selectedUnderstanding, setSelectedUnderstanding] =
     useState<string>("secure");
+
+  function handleChangeUnderstanding(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedUnderstanding(e.target.value);
+  }
 
   return (
     <div className="student-register">

@@ -2,9 +2,12 @@ import { useState } from "react";
 import data from "../data.json";
 import "./scss/main.scss";
 import { Register } from "./components/register";
+import type { Student } from "./types/student";
 
 function App() {
-  const [studentList, setStudentList] = useState(data.studentlist);
+  const [studentList, setStudentList] = useState<Student[]>(
+    data.studentlist as Student[],
+  );
   const [newStudent, setNewStudent] = useState<string>("");
 
   return (
