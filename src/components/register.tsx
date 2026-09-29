@@ -104,6 +104,19 @@ export function Register({
     );
   }
 
+  function handleFollowUp(id: string, followUp: boolean) {
+    setStudentList((prev) =>
+      prev.map((studentCurrent) =>
+        studentCurrent.id === id
+          ? {
+              ...studentCurrent,
+              followUp: !followUp,
+            }
+          : studentCurrent,
+      ),
+    );
+  }
+
   return (
     <div className="student-register">
       <div className="student-register__toolbar">
@@ -212,6 +225,16 @@ export function Register({
                       <option value="developing">Developing</option>
                       <option value="needsSupport">Needs Support</option>
                     </select>
+                  </td>
+
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={student.followUp && true}
+                      onChange={() =>
+                        handleFollowUp(student.id, student.followUp)
+                      }
+                    />
                   </td>
                 </tr>
               );
