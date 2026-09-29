@@ -88,11 +88,20 @@ export function Register({
     );
   }
 
-  const [selectedUnderstanding, setSelectedUnderstanding] =
-    useState<string>("secure");
-
-  function handleChangeUnderstanding(e: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedUnderstanding(e.target.value);
+  function handleChangeUnderstanding(
+    id: string,
+    newUnderstanding: Student["understanding"],
+  ) {
+    setStudentList((prev) =>
+      prev.map((studentCurrent) =>
+        studentCurrent.id === id
+          ? {
+              ...studentCurrent,
+              understanding: newUnderstanding,
+            }
+          : studentCurrent,
+      ),
+    );
   }
 
   return (
@@ -190,13 +199,18 @@ export function Register({
 
                   <td>
                     <select
-                      value={selectedUnderstanding}
-                      onChange={handleChangeUnderstanding}
+                      value={student.understanding}
+                      onChange={(e) =>
+                        handleChangeUnderstanding(
+                          student.id,
+                          e.target.value as Student["understanding"],
+                        )
+                      }
                       className="student-register__dropdown-understanding"
                     >
-                      <option value="name">Secure</option>
+                      <option value="secure">Secure</option>
                       <option value="developing">Developing</option>
-                      <option value="needs support">Needs Support</option>
+                      <option value="needsSupport">Needs Support</option>
                     </select>
                   </td>
                 </tr>
