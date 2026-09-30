@@ -53,11 +53,22 @@ export function Register({
 
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
 
+  const understandingOrder = {
+    needsSupport: 0,
+    developing: 1,
+    secure: 2,
+  };
+
   const sortedStudents = [...studentList].sort((a, b) => {
     if (selectedFilterVal === "participation-high") {
       return b.participation - a.participation;
     } else if (selectedFilterVal === "participation-low") {
       return a.participation - b.participation;
+    } else if (selectedFilterVal === "needsSupport") {
+      return (
+        understandingOrder[a.understanding] -
+          understandingOrder[b.understanding] || a.name.localeCompare(b.name)
+      );
     } else {
       return a.name.localeCompare(b.name);
     }
@@ -149,6 +160,7 @@ export function Register({
           <option value="name">name</option>
           <option value="participation-high">participation high</option>
           <option value="participation-low">participation low</option>
+          <option value="needsSupport">needs support</option>
         </select>
         <input
           type="search"
