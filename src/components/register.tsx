@@ -54,8 +54,10 @@ export function Register({
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
 
   const sortedStudents = [...studentList].sort((a, b) => {
-    if (selectedFilterVal === "participation") {
+    if (selectedFilterVal === "participation-high") {
       return b.participation - a.participation;
+    } else if (selectedFilterVal === "participation-low") {
+      return a.participation - b.participation;
     } else {
       return a.name.localeCompare(b.name);
     }
@@ -145,7 +147,8 @@ export function Register({
         >
           <option disabled>Sort by:</option>
           <option value="name">name</option>
-          <option value="participation">participation</option>
+          <option value="participation-high">participation high</option>
+          <option value="participation-low">participation low</option>
         </select>
         <input
           type="search"
