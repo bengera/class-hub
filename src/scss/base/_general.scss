@@ -33,7 +33,7 @@ td {
   border: 1px solid black;
 }
 
-td:not(:first-child) {
+td:nth-child(n + 2) {
   text-align: center;
 }
 
@@ -210,4 +210,32 @@ $profile-colors: (
 .icon-note {
   width: 25px;
   cursor: pointer;
+}
+
+.understanding {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  font: inherit;
+  cursor: pointer;
+
+  &--secure {
+    background-color: #ecfdf3;
+    border-color: #86d7a5;
+  }
+
+  &--developing {
+    background-color: #fff8e1;
+    border-color: #e5bd55;
+  }
+
+  &--needsSupport {
+    background-color: #fff0f0;
+    border-color: #e99a9a;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #7c5ce7;
+    outline-offset: 2px;
+  }
 }

@@ -212,6 +212,7 @@ export function Register({
 
                   <td>
                     <select
+                      className={`understanding understanding--${student.understanding}`}
                       value={student.understanding}
                       onChange={(e) =>
                         handleChangeUnderstanding(
@@ -219,7 +220,6 @@ export function Register({
                           e.target.value as Student["understanding"],
                         )
                       }
-                      className="student-register__dropdown-understanding"
                     >
                       <option value="secure">Secure</option>
                       <option value="developing">Developing</option>
