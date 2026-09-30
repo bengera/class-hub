@@ -236,6 +236,13 @@ export function Register({
                       }
                     />
                   </td>
+                  <td>
+                    <img
+                      className="icon-note"
+                      src="note-icon.svg"
+                      alt="note icon"
+                    />
+                  </td>
                 </tr>
               );
             })}

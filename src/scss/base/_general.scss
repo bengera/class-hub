@@ -33,6 +33,10 @@ td {
   border: 1px solid black;
 }
 
+td:not(:first-child) {
+  text-align: center;
+}
+
 .app {
   display: flex;
   justify-content: center;
@@ -40,6 +44,7 @@ td {
 
 .dashboard {
   border: 1px solid black;
+  width: 60vw;
 }
 
 .dashboard__header {
@@ -200,4 +205,9 @@ $profile-colors: (
 
 .circle--empty {
   background-color: rgb(224, 222, 222);
+}
+
+.icon-note {
+  width: 25px;
+  cursor: pointer;
 }

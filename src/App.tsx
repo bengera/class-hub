@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="app">
-      <aside className="sidebar">
+      {/* <aside className="sidebar">
         <div className="logo">
           <img src="logo.svg" alt="logo" className="logo-img" />
         </div>
@@ -50,7 +50,7 @@ function App() {
             </li>
           </ul>
         </nav>
-      </aside>
+      </aside> */}
       <main className="dashboard">
         <header className="dashboard__header">
           <div className="class-header__left-content">
@@ -60,12 +60,7 @@ function App() {
             <p className="class-header__class-code">Class code: AEX-0234</p>
           </div>
           <div className="class-header__right-content">
-            <div className="dashboard__header-actions">
-              <button className="dashboard__header-action">
-                Random Student
-              </button>
-              <button className="dashboard__header-action">Create teams</button>
-            </div>
+            <div className="dashboard__header-actions"></div>
           </div>
         </header>
         <Register
