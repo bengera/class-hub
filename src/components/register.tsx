@@ -61,9 +61,9 @@ export function Register({
 
   const sortedStudents = [...studentList].sort((a, b) => {
     if (selectedFilterVal === "participation-high") {
-      return b.participation - a.participation;
+      return b.participation - a.participation || a.name.localeCompare(b.name);
     } else if (selectedFilterVal === "participation-low") {
-      return a.participation - b.participation;
+      return a.participation - b.participation || a.name.localeCompare(b.name);
     } else if (selectedFilterVal === "needsSupport") {
       return (
         understandingOrder[a.understanding] -
