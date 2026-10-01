@@ -69,6 +69,10 @@ export function Register({
         understandingOrder[a.understanding] -
           understandingOrder[b.understanding] || a.name.localeCompare(b.name)
       );
+    } else if (selectedFilterVal === "needsFollowUp") {
+      return (
+        Number(b.followUp) - Number(a.followUp) || a.name.localeCompare(b.name)
+      );
     } else {
       return a.name.localeCompare(b.name);
     }
@@ -161,6 +165,7 @@ export function Register({
           <option value="participation-high">participation high</option>
           <option value="participation-low">participation low</option>
           <option value="needsSupport">needs support</option>
+          <option value="needsFollowUp">needs follow up</option>
         </select>
         <input
           type="search"
