@@ -81,6 +81,10 @@ td:nth-child(n + 2) {
     width: 250px;
   }
 
+  &__names-list {
+    width: 100%;
+  }
+
   &__first-letter {
     margin-right: 18px;
     display: inline-block;
@@ -215,7 +219,7 @@ $profile-colors: (
 .understanding {
   padding: 0.5rem 2rem 0.5rem 0.75rem;
   border: 1px solid;
-  border-radius: 0.5rem;
+  border-radius: 50px;
   font: inherit;
   cursor: pointer;
 
