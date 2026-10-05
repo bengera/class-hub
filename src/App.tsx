@@ -15,13 +15,15 @@ function App() {
       <main className="dashboard">
         <header className="dashboard__header">
           <div className="class-header__left-content">
-            <h1 className="class-header__title">
-              Project: Building an environmentally friendly museum
-            </h1>
-            <p className="class-header__class-code">Class code: AEX-0234</p>
+            <img className="logo" src="logo2.svg" alt="logo" />
           </div>
           <div className="class-header__right-content">
-            <div className="dashboard__header-actions"></div>
+            <h1 className="class-header__title">Grade 6: Gerography lesson</h1>
+            <p className="class__lesson-description">
+              Map Skills: Learn how to find specific places on a map using grid
+              lines, symbols, and directions.
+            </p>
+            <p className="class-header__class-code">Class code: AEX-0234</p>
           </div>
         </header>
         <Register
