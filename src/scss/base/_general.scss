@@ -51,7 +51,6 @@ td:nth-child(n + 2) {
   display: flex;
   align-items: center;
   border: 1px solid black;
-  padding: 1rem;
 }
 
 .sidebar {
@@ -67,7 +66,6 @@ td:nth-child(n + 2) {
 .student-register {
   margin: 1rem;
   border-radius: 5px;
-  padding: 1rem;
   justify-items: left;
 
   &__index-cell {

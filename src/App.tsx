@@ -18,7 +18,7 @@ function App() {
             <img className="logo" src="logo2.svg" alt="logo" />
           </div>
           <div className="class-header__right-content">
-            <h1 className="class-header__title">Grade 6: Gerography lesson</h1>
+            <p className="class-header__title">Grade 6: Gerography lesson</p>
             <p className="class__lesson-description">
               Map Skills: Learn how to find specific places on a map using grid
               lines, symbols, and directions.

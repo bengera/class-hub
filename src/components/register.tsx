@@ -11,47 +11,58 @@ interface RegisterProps {
 export function Register({
   studentList,
   setStudentList,
-  newStudent,
-  setNewStudent,
+  // newStudent,
+  // setNewStudent,
 }: RegisterProps) {
-  function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
-    e.preventDefault();
+  // function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
+  //   e.preventDefault();
 
-    const profileColors = [
-      "profilePink",
-      "profilePurple",
-      "profileTeal",
-      "profileSky",
-      "profileOrange",
-      "profileGreen",
-      "profileIndigo",
-      "profileRed",
-      "profileCyan",
-      "profileAmber",
-      "profileViolet",
-      "profileRose",
-    ];
+  //   const profileColors = [
+  //     "profilePink",
+  //     "profilePurple",
+  //     "profileTeal",
+  //     "profileSky",
+  //     "profileOrange",
+  //     "profileGreen",
+  //     "profileIndigo",
+  //     "profileRed",
+  //     "profileCyan",
+  //     "profileAmber",
+  //     "profileViolet",
+  //     "profileRose",
+  //   ];
 
-    const randomIndex = Math.floor(Math.random() * profileColors.length);
-    const randomColor = profileColors[randomIndex];
-    const capitilzedName =
-      newStudent.charAt(0).toUpperCase() + newStudent.slice(1);
+  //   const randomIndex = Math.floor(Math.random() * profileColors.length);
+  //   const randomColor = profileColors[randomIndex];
+  //   const capitilzedName =
+  //     newStudent.charAt(0).toUpperCase() + newStudent.slice(1);
 
-    const newStudentData: Student = {
-      id: crypto.randomUUID(),
-      name: capitilzedName.trim(),
-      participation: 0,
-      understanding: "developing",
-      followUp: false,
-      notes: [],
-      profileColor: randomColor,
-    };
+  //   const newStudentData: Student = {
+  //     id: crypto.randomUUID(),
+  //     name: capitilzedName.trim(),
+  //     participation: 0,
+  //     understanding: "developing",
+  //     followUp: false,
+  //     notes: [],
+  //     profileColor: randomColor,
+  //   };
 
-    setStudentList((prevList) => [...prevList, newStudentData]);
-    setNewStudent("");
-  }
+  //   setStudentList((prevList) => [...prevList, newStudentData]);
+  //   setNewStudent("");
+  // }
 
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
+
+  const filteredNames = studentList.filter((student) =>
+    student.name.toLowerCase().includes(search.toLowerCase().trim()),
+  );
+
+  console.log("search:", search);
+  console.log(
+    "names:",
+    filteredNames.map((student) => student.name),
+  );
 
   const understandingOrder = {
     needsSupport: 0,
@@ -59,7 +70,7 @@ export function Register({
     secure: 2,
   };
 
-  const sortedStudents = [...studentList].sort((a, b) => {
+  const sortedStudents = [...filteredNames].sort((a, b) => {
     if (selectedFilterVal === "participation-high") {
       return b.participation - a.participation || a.name.localeCompare(b.name);
     } else if (selectedFilterVal === "participation-low") {
@@ -138,14 +149,13 @@ export function Register({
     <div className="student-register">
       <div className="student-register__toolbar">
         <div className="student-register__toolbar-left">
-          <p className="student-register__heading">Students</p>
-          <p className="student-register__num-students">
+          <button className="student-register__num-students">
             {studentList.length > 1
               ? studentList.length + " students"
               : "1 student"}
-          </p>
+          </button>
         </div>
-        <form className="add-students" onSubmit={handleAddStudent}>
+        {/* <form className="add-students" onSubmit={handleAddStudent}>
           <label htmlFor="student name"></label>
           <input
             type="text"
@@ -154,7 +164,7 @@ export function Register({
             onChange={(e) => setNewStudent(e.target.value)}
           />
           <button className="student-register__add-btn">Add Student</button>
-        </form>
+        </form> */}
         <select
           value={selectedFilterVal}
           onChange={handleChangeFilter}
@@ -171,6 +181,8 @@ export function Register({
           type="search"
           className="student-register__searchbar"
           placeholder="Search students"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <div className="student-register__names-list">
