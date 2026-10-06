@@ -58,12 +58,6 @@ export function Register({
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
   );
 
-  console.log("search:", search);
-  console.log(
-    "names:",
-    filteredNames.map((student) => student.name),
-  );
-
   const understandingOrder = {
     needsSupport: 0,
     developing: 1,
@@ -150,9 +144,16 @@ export function Register({
       <div className="student-register__toolbar">
         <div className="student-register__toolbar-left">
           <button className="student-register__num-students">
-            {studentList.length > 1
-              ? studentList.length + " students"
-              : "1 student"}
+            {(() => {
+              switch (filteredNames.length) {
+                case 0:
+                  return "0 students";
+                case 1:
+                  return "1 student";
+                default:
+                  return `${filteredNames.length}  students`;
+              }
+            })()}
           </button>
         </div>
         {/* <form className="add-students" onSubmit={handleAddStudent}>
