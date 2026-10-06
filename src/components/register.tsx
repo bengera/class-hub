@@ -142,8 +142,14 @@ export function Register({
   return (
     <div className="student-register">
       <div className="student-register__toolbar">
-        <div className="student-register__toolbar-left">
-          <button className="student-register__num-students">
+        <div className="student-register__info">
+          <h2>Live Student Observations</h2>
+          <p>
+            Track participation, understanding, and follow-up during the lesson.
+          </p>
+        </div>
+        <div className="buttons-container">
+          <button className="button button__all-students">
             {(() => {
               switch (filteredNames.length) {
                 case 0:
@@ -151,11 +157,36 @@ export function Register({
                 case 1:
                   return "1 student";
                 default:
-                  return `${filteredNames.length}  students`;
+                  return `All students (${filteredNames.length})`;
               }
             })()}
           </button>
+
+          <button className="button button__support">
+            <span
+              className="circle"
+              style={{ backgroundColor: "#e05263" }}
+            ></span>
+            Needs Support
+          </button>
+          <button className="button button__follow-up">
+            {" "}
+            <span
+              className="circle"
+              style={{ backgroundColor: "#e6a817" }}
+            ></span>
+            Follow-up
+          </button>
+          <button className="button button__low-participation">
+            {" "}
+            <span
+              className="circle"
+              style={{ backgroundColor: "#7c5ce7" }}
+            ></span>
+            Low Participation
+          </button>
         </div>
+
         {/* <form className="add-students" onSubmit={handleAddStudent}>
           <label htmlFor="student name"></label>
           <input
