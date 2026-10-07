@@ -64,7 +64,14 @@ export function Register({
     secure: 2,
   };
 
-  const sortedStudents = [...filteredNames].sort((a, b) => {
+  const filteredList = studentList.filter(
+    (student) => student.understanding === selectedFilterVal,
+  );
+  console.log(filteredList);
+
+  const sortedStudents = [
+    ...(selectedFilterVal ? filteredList : filteredNames),
+  ].sort((a, b) => {
     if (selectedFilterVal === "participation-high") {
       return b.participation - a.participation || a.name.localeCompare(b.name);
     } else if (selectedFilterVal === "participation-low") {
@@ -162,7 +169,10 @@ export function Register({
             })()}
           </button>
 
-          <button className="button button__support">
+          <button
+            className="button button__support"
+            onClick={() => setSelectedFilterVal("needsSupport")}
+          >
             <span
               className="circle"
               style={{ backgroundColor: "#e05263" }}
