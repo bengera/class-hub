@@ -64,10 +64,22 @@ export function Register({
     secure: 2,
   };
 
-  const filteredList = studentList.filter(
-    (student) => student.understanding === selectedFilterVal,
-  );
-  console.log(filteredList);
+  let filteredList = studentList;
+
+  if (selectedFilterVal === "needsSupport") {
+    filteredList = studentList.filter(
+      (student) => student.understanding === selectedFilterVal,
+    );
+  } else if (selectedFilterVal === "followUp") {
+    filteredList = studentList.filter((student) => student.followUp);
+  } else if (selectedFilterVal === "lowParticipation") {
+    filteredList = studentList.filter((student) => student.participation < 2);
+  }
+
+  // const filteredList = studentList.filter(
+  //   (student) => student.understanding === selectedFilterVal,
+  // );
+  // console.log(filteredList);
 
   const sortedStudents = [
     ...(selectedFilterVal ? filteredList : filteredNames),
@@ -179,7 +191,10 @@ export function Register({
             ></span>
             Needs Support
           </button>
-          <button className="button button__follow-up">
+          <button
+            className="button button__follow-up"
+            onClick={() => setSelectedFilterVal("followUp")}
+          >
             {" "}
             <span
               className="circle"
@@ -187,7 +202,10 @@ export function Register({
             ></span>
             Follow-up
           </button>
-          <button className="button button__low-participation">
+          <button
+            className="button button__low-participation"
+            onClick={() => setSelectedFilterVal("lowParticipation")}
+          >
             {" "}
             <span
               className="circle"
