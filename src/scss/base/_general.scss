@@ -149,18 +149,30 @@ td:nth-child(n + 2) {
   gap: 1rem;
   border: 1px solid grey;
 
-  &__all-students {
-    background-color: $color-primary-500;
-    color: white;
-  }
-  &__support {
-  }
+  // &__support {
+  // }
 
-  &__follow-up {
-  }
+  // &__follow-up {
+  // }
 
-  &__low-participation {
+  // &__low-participation {
+  // }
+}
+
+.btn-filter {
+  color: white;
+}
+
+.btn-filter,
+.active {
+  &__all {
   }
+}
+
+.btn-filter,
+.active {
+  background-color: $color-primary-500;
+  color: white;
 }
 
 .logo {

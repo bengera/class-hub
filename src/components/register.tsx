@@ -53,6 +53,7 @@ export function Register({
 
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
   const [search, setSearch] = useState<string>("");
+  const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -168,7 +169,16 @@ export function Register({
           </p>
         </div>
         <div className="buttons-container">
-          <button className="button button__all-students">
+          <button
+            className={
+              selectedFilterVal === "all"
+                ? "button btn-filter__all active"
+                : "button btn-filter__all"
+            }
+            onClick={() => {
+              setSelectedFilterVal("all");
+            }}
+          >
             {(() => {
               switch (filteredNames.length) {
                 case 0:
@@ -182,8 +192,14 @@ export function Register({
           </button>
 
           <button
-            className="button button__support"
-            onClick={() => setSelectedFilterVal("needsSupport")}
+            className={
+              selectedFilterVal === "needsSupport"
+                ? "button btn-filter__needs-support active"
+                : "button btn-filter__needs-support"
+            }
+            onClick={() => {
+              setSelectedFilterVal("needsSupport");
+            }}
           >
             <span
               className="circle"
@@ -192,7 +208,11 @@ export function Register({
             Needs Support
           </button>
           <button
-            className="button button__follow-up"
+            className={
+              selectedFilterVal === "followUp"
+                ? "button btn-filter__follow-up active"
+                : "button btn-filter__follow-up"
+            }
             onClick={() => setSelectedFilterVal("followUp")}
           >
             {" "}
@@ -203,7 +223,11 @@ export function Register({
             Follow-up
           </button>
           <button
-            className="button button__low-participation"
+            className={
+              selectedFilterVal === "lowParticipation"
+                ? "button btn-filter__low-participation active"
+                : "button btn-filter__low-participation"
+            }
             onClick={() => setSelectedFilterVal("lowParticipation")}
           >
             {" "}
