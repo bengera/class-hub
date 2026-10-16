@@ -51,9 +51,9 @@ export function Register({
   //   setNewStudent("");
   // }
 
-  const [selectedFilterVal, setSelectedFilterVal] = useState<string>("");
+  const [selectedFilterVal, setSelectedFilterVal] = useState<string>("all");
+  const [selectedQuickFilter, setSelectedQuickFilter] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
-  const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -64,6 +64,8 @@ export function Register({
     developing: 1,
     secure: 2,
   };
+
+  // FILTERING ON QUICK ACCESS FILTER PILL BUTTONS
 
   let filteredList = studentList;
 
@@ -77,10 +79,7 @@ export function Register({
     filteredList = studentList.filter((student) => student.participation < 2);
   }
 
-  // const filteredList = studentList.filter(
-  //   (student) => student.understanding === selectedFilterVal,
-  // );
-  // console.log(filteredList);
+  // INTITAL SORTING ON RENDER
 
   const sortedStudents = [
     ...(selectedFilterVal ? filteredList : filteredNames),
