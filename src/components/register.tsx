@@ -67,16 +67,16 @@ export function Register({
 
   // FILTERING ON QUICK ACCESS FILTER PILL BUTTONS
 
-  let filteredList = studentList;
+  let filteredList = filteredNames;
 
-  if (selectedFilterVal === "needsSupport") {
-    filteredList = studentList.filter(
-      (student) => student.understanding === selectedFilterVal,
+  if (selectedQuickFilter === "needsSupport") {
+    filteredList = filteredNames.filter(
+      (student) => student.understanding === selectedQuickFilter,
     );
-  } else if (selectedFilterVal === "followUp") {
-    filteredList = studentList.filter((student) => student.followUp);
-  } else if (selectedFilterVal === "lowParticipation") {
-    filteredList = studentList.filter((student) => student.participation < 2);
+  } else if (selectedQuickFilter === "followUp") {
+    filteredList = filteredNames.filter((student) => student.followUp);
+  } else if (selectedQuickFilter === "lowParticipation") {
+    filteredList = filteredNames.filter((student) => student.participation < 2);
   }
 
   // INTITAL SORTING ON RENDER
@@ -170,34 +170,25 @@ export function Register({
         <div className="buttons-container">
           <button
             className={
-              selectedFilterVal === "all"
+              selectedQuickFilter === "all"
                 ? "button btn-filter__all active"
                 : "button btn-filter__all"
             }
             onClick={() => {
-              setSelectedFilterVal("all");
+              setSelectedQuickFilter("all");
             }}
           >
-            {(() => {
-              switch (filteredNames.length) {
-                case 0:
-                  return "0 students";
-                case 1:
-                  return "1 student";
-                default:
-                  return `All students (${filteredNames.length})`;
-              }
-            })()}
+            {`All students (${filteredNames.length})`}
           </button>
 
           <button
             className={
-              selectedFilterVal === "needsSupport"
+              selectedQuickFilter === "needsSupport"
                 ? "button btn-filter__needs-support active"
                 : "button btn-filter__needs-support"
             }
             onClick={() => {
-              setSelectedFilterVal("needsSupport");
+              setSelectedQuickFilter("needsSupport");
             }}
           >
             <span
@@ -208,11 +199,11 @@ export function Register({
           </button>
           <button
             className={
-              selectedFilterVal === "followUp"
+              selectedQuickFilter === "followUp"
                 ? "button btn-filter__follow-up active"
                 : "button btn-filter__follow-up"
             }
-            onClick={() => setSelectedFilterVal("followUp")}
+            onClick={() => setSelectedQuickFilter("followUp")}
           >
             {" "}
             <span
@@ -223,11 +214,11 @@ export function Register({
           </button>
           <button
             className={
-              selectedFilterVal === "lowParticipation"
+              selectedQuickFilter === "lowParticipation"
                 ? "button btn-filter__low-participation active"
                 : "button btn-filter__low-participation"
             }
-            onClick={() => setSelectedFilterVal("lowParticipation")}
+            onClick={() => setSelectedQuickFilter("lowParticipation")}
           >
             {" "}
             <span
