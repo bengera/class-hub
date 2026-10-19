@@ -54,6 +54,7 @@ export function Register({
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("all");
   const [selectedQuickFilter, setSelectedQuickFilter] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
+  const [openMenuId, setOpenMenuId] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -347,7 +348,11 @@ export function Register({
                       className="icon-note"
                       src="note-icon.svg"
                       alt="note icon"
+                      onClick={() => setOpenMenuId(student.id)}
                     />
+                    {openMenuId === student.id ? (
+                      <div className="note-menu">note menu</div>
+                    ) : null}
                   </td>
                 </tr>
               );
