@@ -54,7 +54,7 @@ export function Register({
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("all");
   const [selectedQuickFilter, setSelectedQuickFilter] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
-  const [openMenuId, setOpenMenuId] = useState<string>("");
+  const [openModal, setOpenModal] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -348,10 +348,36 @@ export function Register({
                       className="icon-note"
                       src="note-icon.svg"
                       alt="note icon"
-                      onClick={() => setOpenMenuId(student.id)}
+                      onClick={() => setOpenModal(student.id)}
                     />
-                    {openMenuId === student.id ? (
-                      <div className="note-menu">note menu</div>
+                    {openModal === student.id ? (
+                      <div className="student-modal">
+                        <p>Add note</p>
+                        <div className="student-modal__info-container">
+                          <div className="student-modal__profile">
+                            {" "}
+                            <span
+                              className={`student-register__first-letter ${student.profileColor}`}
+                            >
+                              {student.name.charAt(0)}
+                            </span>
+                          </div>
+                          <p className="student-modal__name">{student.name}</p>
+                          <div className="student-modal__support">
+                            {student.understanding}
+                          </div>
+                        </div>
+                        <div className="student-modal__note-area">
+                          <p>Note</p>
+                          <textarea
+                            className="student-modal__notes-field"
+                            name="note"
+                            id=""
+                          >
+                            Add notes...
+                          </textarea>
+                        </div>
+                      </div>
                     ) : null}
                   </td>
                 </tr>
