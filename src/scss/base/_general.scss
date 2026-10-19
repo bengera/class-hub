@@ -80,9 +80,10 @@ td:nth-child(n + 2) {
 
   &__info-container {
     display: flex;
-    border: 1px solid black;
-    justify-content: center;
+    // border: 1px solid black;
+    justify-content: left;
     align-items: center;
+    margin-left: 2rem;
     gap: 2rem;
   }
 

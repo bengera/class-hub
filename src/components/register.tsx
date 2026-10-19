@@ -54,7 +54,8 @@ export function Register({
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("all");
   const [selectedQuickFilter, setSelectedQuickFilter] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
-  const [openModal, setOpenModal] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [selectedStudentId, setSelectedStudentId] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -157,6 +158,12 @@ export function Register({
           : studentCurrent,
       ),
     );
+  }
+
+  function handleOpenModal(id: string) {
+    console.log("opening modal...");
+    setSelectedStudentId(id);
+    setOpenModal(true);
   }
 
   return (
@@ -348,9 +355,9 @@ export function Register({
                       className="icon-note"
                       src="note-icon.svg"
                       alt="note icon"
-                      onClick={() => setOpenModal(student.id)}
+                      onClick={() => handleOpenModal(student.id)}
                     />
-                    {openModal === student.id ? (
+                    {openModal && student.id === selectedStudentId ? (
                       <div className="student-modal">
                         <p>Add note</p>
                         <div className="student-modal__info-container">
@@ -377,6 +384,12 @@ export function Register({
                             Add notes...
                           </textarea>
                         </div>
+                        <button className="student-modal__btn-cancel">
+                          Cancel
+                        </button>
+                        <button className="student-modal__btn-cancel">
+                          Save note
+                        </button>
                       </div>
                     ) : null}
                   </td>
