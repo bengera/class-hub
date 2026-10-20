@@ -384,7 +384,10 @@ export function Register({
                             Add notes...
                           </textarea>
                         </div>
-                        <button className="student-modal__btn-cancel">
+                        <button
+                          className="student-modal__btn-cancel"
+                          onClick={() => setOpenModal(false)}
+                        >
                           Cancel
                         </button>
                         <button className="student-modal__btn-cancel">
