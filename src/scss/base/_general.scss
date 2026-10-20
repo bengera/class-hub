@@ -24,17 +24,27 @@ th {
 table {
   width: 100%;
   margin-top: 2rem;
-  // border: 1px solid black;
+  border-collapse: collapse;
 }
 
 th {
   padding: 1rem;
 }
 
+// th,
+// tr,
+// td {
+//   border: 1px solid black;
+// }
+
+table,
 th,
-tr,
 td {
-  border: 1px solid black;
+  border: 1px solid rgb(48, 49, 48);
+}
+
+td {
+  padding: 1rem;
 }
 
 // td:nth-child(n + 2) {

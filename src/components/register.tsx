@@ -312,19 +312,21 @@ export function Register({
                   </th>
 
                   <td className="student-register__participation-cell">
-                    <div className="participation-circles">
-                      {Array.from({
-                        length: participationNum > 5 ? 5 : participationNum,
-                      }).map((_, idx) => (
-                        <div key={idx} className="circle circle--fill" />
-                      ))}
-                    </div>
-                    <div className="participation-circles">
-                      {Array.from({
-                        length: emptyCircles,
-                      }).map((_, idx) => (
-                        <div key={idx} className="circle circle--empty"></div>
-                      ))}
+                    <div className="student-register__participation-cell-inner">
+                      <div className="participation-circles">
+                        {Array.from({
+                          length: participationNum > 5 ? 5 : participationNum,
+                        }).map((_, idx) => (
+                          <div key={idx} className="circle circle--fill" />
+                        ))}
+                      </div>
+                      <div className="participation-circles">
+                        {Array.from({
+                          length: emptyCircles,
+                        }).map((_, idx) => (
+                          <div key={idx} className="circle circle--empty"></div>
+                        ))}
+                      </div>
                     </div>
                     <button
                       className="actions__plus-participation"
