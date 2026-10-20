@@ -24,7 +24,11 @@ th {
 table {
   width: 100%;
   margin-top: 2rem;
-  border: 1px solid black;
+  // border: 1px solid black;
+}
+
+th {
+  padding: 1rem;
 }
 
 th,
@@ -33,9 +37,9 @@ td {
   border: 1px solid black;
 }
 
-td:nth-child(n + 2) {
-  text-align: center;
-}
+// td:nth-child(n + 2) {
+//   text-align: center;
+// }
 
 .app {
   display: flex;
@@ -44,7 +48,7 @@ td:nth-child(n + 2) {
 
 .dashboard {
   border: 1px solid black;
-  width: 60vw;
+  width: 80vw;
 }
 
 .dashboard__header {

@@ -56,6 +56,7 @@ export function Register({
   const [search, setSearch] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
+  const [notes, setNotes] = useState<string>("Add notes...");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -272,6 +273,7 @@ export function Register({
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Initials</th>
               <th scope="col">Name</th>
               <th scope="col">Participation</th>
               <th scope="col">Understanding</th>
@@ -292,12 +294,20 @@ export function Register({
                   <td className="student-register__index-cell">
                     <p className="index">{idx + 1}</p>
                   </td>
-                  <th scope="row" className="student-register__row-name">
+
+                  <th scope="row" className="student-register__profile-intials">
                     <span
                       className={`student-register__first-letter ${student.profileColor}`}
                     >
-                      {student.name.charAt(0)}
+                      {student.name
+                        .split(" ")
+                        .map((word) => word.charAt(0))
+                        .join("")
+                        .toUpperCase()}
                     </span>
+                  </th>
+
+                  <th scope="row" className="student-register__row-name">
                     {student.name}
                   </th>
 
@@ -341,7 +351,7 @@ export function Register({
                     </select>
                   </td>
 
-                  <td>
+                  <td className="td-follow-up">
                     <input
                       type="checkbox"
                       checked={student.followUp && true}
@@ -350,13 +360,14 @@ export function Register({
                       }
                     />
                   </td>
-                  <td>
+                  <td className="cell-notes">
                     <img
                       className="icon-note"
                       src="note-icon.svg"
                       alt="note icon"
                       onClick={() => handleOpenModal(student.id)}
                     />
+                    {student.notes ? <p>{student.notes}</p> : null}
                     {openModal && student.id === selectedStudentId ? (
                       <div className="student-modal">
                         <p>Add note</p>
@@ -379,10 +390,9 @@ export function Register({
                           <textarea
                             className="student-modal__notes-field"
                             name="note"
-                            id=""
-                          >
-                            Add notes...
-                          </textarea>
+                            value={notes}
+                            onChange={(e) => setNotes(e.target.value)}
+                          />
                         </div>
                         <button
                           className="student-modal__btn-cancel"

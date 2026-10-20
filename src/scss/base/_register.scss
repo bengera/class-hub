@@ -27,9 +27,8 @@
     border-radius: $radius-full;
     text-align: center;
     color: $color-white;
-    padding: 10px;
-    width: 20px;
-    height: 20px;
+    padding: 12px;
+    line-height: 25px;
     font-size: 17px;
   }
 
@@ -65,6 +64,10 @@
     height: 43px;
   }
 }
+
+// .cell-notes {
+//   display: flex;
+// }
 
 .class-header__right-content,
 .class-header__right-content * {
@@ -220,4 +223,8 @@ $profile-colors: (
     outline: 3px solid #7c5ce7;
     outline-offset: 2px;
   }
+}
+
+.td-follow-up {
+  text-align: center;
 }
