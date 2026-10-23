@@ -372,23 +372,23 @@ export function Register({
                     {student.notes ? <p>{student.notes}</p> : null}
                     {openModal && student.id === selectedStudentId ? (
                       <div className="student-modal">
-                        <p>Add note</p>
+                        <p>Observation notes</p>
                         <div className="student-modal__info-container">
                           <div className="student-modal__profile">
                             {" "}
                             <span
-                              className={`student-register__profile-intitals ${student.profileColor}`}
+                              className={`student-register__profile-initials ${student.profileColor}`}
                             >
                               {student.name.charAt(0)}
                             </span>
                           </div>
                           <p className="student-modal__name">{student.name}</p>
-                          <div className="student-modal__support">
+                          {/* <div className="student-modal__support">
                             {student.understanding}
-                          </div>
+                          </div> */}
                         </div>
                         <div className="student-modal__note-area">
-                          <p>Note</p>
+                          <p>Notes {`(${student.notes.length})`}</p>
                           <textarea
                             className="student-modal__notes-field"
                             name="note"
