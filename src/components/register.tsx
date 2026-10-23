@@ -295,9 +295,9 @@ export function Register({
                     <p className="index">{idx + 1}</p>
                   </td>
 
-                  <th scope="row" className="student-register__profile-intials">
+                  <th scope="row" className="student-register">
                     <span
-                      className={`student-register__first-letter ${student.profileColor}`}
+                      className={`student-register__profile-initials ${student.profileColor}`}
                     >
                       {student.name
                         .split(" ")
@@ -327,13 +327,13 @@ export function Register({
                           <div key={idx} className="circle circle--empty"></div>
                         ))}
                       </div>
+                      <button
+                        className="actions__plus-participation"
+                        onClick={() => incrementParticipation(student)}
+                      >
+                        +
+                      </button>
                     </div>
-                    <button
-                      className="actions__plus-participation"
-                      onClick={() => incrementParticipation(student)}
-                    >
-                      +
-                    </button>
                   </td>
 
                   <td>
@@ -377,7 +377,7 @@ export function Register({
                           <div className="student-modal__profile">
                             {" "}
                             <span
-                              className={`student-register__first-letter ${student.profileColor}`}
+                              className={`student-register__profile-intitals ${student.profileColor}`}
                             >
                               {student.name.charAt(0)}
                             </span>
