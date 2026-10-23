@@ -167,6 +167,15 @@ export function Register({
     setOpenModal(true);
   }
 
+  function getFirstTwoLetters(fullName: string) {
+    console.log(fullName);
+    return fullName
+      .split(" ")
+      .map((word) => word.charAt(0))
+      .join("")
+      .toUpperCase();
+  }
+
   return (
     <div className="student-register">
       <div className="student-register__toolbar">
@@ -299,11 +308,7 @@ export function Register({
                     <span
                       className={`student-register__profile-initials ${student.profileColor}`}
                     >
-                      {student.name
-                        .split(" ")
-                        .map((word) => word.charAt(0))
-                        .join("")
-                        .toUpperCase()}
+                      {getFirstTwoLetters(student.name)}
                     </span>
                   </th>
 
@@ -379,7 +384,7 @@ export function Register({
                             <span
                               className={`student-register__profile-initials ${student.profileColor}`}
                             >
-                              {student.name.charAt(0)}
+                              {getFirstTwoLetters(student.name)}
                             </span>
                           </div>
                           <p className="student-modal__name">{student.name}</p>
