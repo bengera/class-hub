@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Student } from "../types/student";
+import { Modal } from "./modal";
 
 interface RegisterProps {
   studentList: Student[];
@@ -56,7 +57,6 @@ export function Register({
   const [search, setSearch] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
-  const [notes, setNotes] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -174,20 +174,6 @@ export function Register({
       .map((word) => word.charAt(0))
       .join("")
       .toUpperCase();
-  }
-
-  function saveNote(targetStudent: Student, id: string) {
-    console.log(`You are saving a note for ${targetStudent.name}`);
-
-    setStudentList((prev) =>
-      prev.map((studentCurrent) =>
-        studentCurrent.id === id
-          ? { ...studentCurrent, notes: [...studentCurrent.notes, notes] }
-          : studentCurrent,
-      ),
-    );
-    setNotes("");
-    setOpenModal(false);
   }
 
   return (
@@ -390,52 +376,12 @@ export function Register({
                     />
                     {/* {student.notes ? <p>{student.notes}</p> : null} */}
                     {openModal && student.id === selectedStudentId ? (
-                      <div className="student-modal">
-                        <p>Observation notes</p>
-                        <div className="student-modal__info-container">
-                          <div className="student-modal__profile">
-                            {" "}
-                            <span
-                              className={`student-register__profile-initials ${student.profileColor}`}
-                            >
-                              {getFirstTwoLetters(student.name)}
-                            </span>
-                          </div>
-                          <p className="student-modal__name">{student.name}</p>
-                          {/* <div className="student-modal__support">
-                            {student.understanding}
-                          </div> */}
-                        </div>
-                        <div className="student-modal__all-notes">
-                          <p>All notes</p>
-                          <ul className="student-modal__notes-list">
-                            {student.notes.map((note, idx) => (
-                              <li key={idx}>{note}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="student-modal__note-area">
-                          <p>Notes {`(${student.notes.length})`}</p>
-                          <textarea
-                            className="student-modal__notes-field"
-                            name="note"
-                            value={notes}
-                            onChange={(e) => setNotes(e.target.value)}
-                          />
-                        </div>
-                        <button
-                          className="student-modal__btn-cancel"
-                          onClick={() => setOpenModal(false)}
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="student-modal__btn-cancel"
-                          onClick={() => saveNote(student, student.id)}
-                        >
-                          Save note
-                        </button>
-                      </div>
+                      <Modal
+                        setStudentList={setStudentList}
+                        student={student}
+                        setOpenModal={setOpenModal}
+                        getFirstTwoLetters={getFirstTwoLetters}
+                      />
                     ) : null}
                   </td>
                 </tr>
