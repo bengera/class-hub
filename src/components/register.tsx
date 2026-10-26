@@ -374,7 +374,7 @@ export function Register({
                       alt="note icon"
                       onClick={() => handleOpenModal(student.id)}
                     />
-                    {student.notes ? <p>{student.notes}</p> : null}
+                    {/* {student.notes ? <p>{student.notes}</p> : null} */}
                     {openModal && student.id === selectedStudentId ? (
                       <div className="student-modal">
                         <p>Observation notes</p>
@@ -391,6 +391,10 @@ export function Register({
                           {/* <div className="student-modal__support">
                             {student.understanding}
                           </div> */}
+                        </div>
+                        <div className="student-modal__all-notes">
+                          <p>All notes</p>
+                          {student.notes}
                         </div>
                         <div className="student-modal__note-area">
                           <p>Notes {`(${student.notes.length})`}</p>
