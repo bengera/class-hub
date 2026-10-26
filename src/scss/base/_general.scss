@@ -107,4 +107,10 @@ td {
     height: 150px;
     resize: none;
   }
+
+  &__notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

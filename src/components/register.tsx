@@ -56,7 +56,7 @@ export function Register({
   const [search, setSearch] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
-  const [notes, setNotes] = useState<string>("Add notes...");
+  const [notes, setNotes] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -174,6 +174,20 @@ export function Register({
       .map((word) => word.charAt(0))
       .join("")
       .toUpperCase();
+  }
+
+  function saveNote(targetStudent: Student, id: string) {
+    console.log(`You are saving a note for ${targetStudent.name}`);
+
+    setStudentList((prev) =>
+      prev.map((studentCurrent) =>
+        studentCurrent.id === id
+          ? { ...studentCurrent, notes: [...studentCurrent.notes, notes] }
+          : studentCurrent,
+      ),
+    );
+    setNotes("");
+    setOpenModal(false);
   }
 
   return (
@@ -394,7 +408,11 @@ export function Register({
                         </div>
                         <div className="student-modal__all-notes">
                           <p>All notes</p>
-                          {student.notes}
+                          <ul className="student-modal__notes-list">
+                            {student.notes.map((note, idx) => (
+                              <li key={idx}>{note}</li>
+                            ))}
+                          </ul>
                         </div>
                         <div className="student-modal__note-area">
                           <p>Notes {`(${student.notes.length})`}</p>
@@ -411,7 +429,10 @@ export function Register({
                         >
                           Cancel
                         </button>
-                        <button className="student-modal__btn-cancel">
+                        <button
+                          className="student-modal__btn-cancel"
+                          onClick={() => saveNote(student, student.id)}
+                        >
                           Save note
                         </button>
                       </div>
