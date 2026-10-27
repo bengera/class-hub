@@ -281,9 +281,9 @@ export function Register({
         <table>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Initials</th>
-              <th scope="col">Name</th>
+              {/* <th scope="col">#</th> */}
+              {/* <th scope="col">Initials</th> */}
+              <th scope="col">Student</th>
               <th scope="col">Participation</th>
               <th scope="col">Understanding</th>
               <th scope="col">Follow-up</th>
@@ -293,26 +293,29 @@ export function Register({
           <tbody>
             {sortedStudents.map((student, idx) => {
               const participationNum = student.participation;
-              const emptyCircles = runComparison(
-                participationNum,
-                student.name,
-              );
+              const emptyCircles = runComparison(participationNum);
 
               return (
                 <tr key={student.id}>
-                  <td className="student-register__index-cell">
+                  {/* <td className="student-register__index-cell">
                     <p className="index">{idx + 1}</p>
-                  </td>
+                  </td> */}
 
-                  <th scope="row" className="student-register">
+                  {/* <th scope="row" className="student-register">
                     <span
                       className={`student-register__profile-initials ${student.profileColor}`}
                     >
                       {getFirstTwoLetters(student.name)}
                     </span>
-                  </th>
+                  </th> */}
 
                   <th scope="row" className="student-register__row-name">
+                    <p className="index">{idx + 1}</p>
+                    <span
+                      className={`student-register__profile-initials ${student.profileColor}`}
+                    >
+                      {getFirstTwoLetters(student.name)}
+                    </span>
                     {student.name}
                   </th>
 

@@ -14,7 +14,10 @@
   }
 
   &__row-name {
-    width: 250px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
   }
 
   &__names-list {
