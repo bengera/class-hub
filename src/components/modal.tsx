@@ -43,6 +43,12 @@ export function Modal({
 
   return (
     <div className="student-modal">
+      <button
+        className="student-modal__btn-close"
+        onClick={() => setOpenModal(false)}
+      >
+        ✖
+      </button>
       <p>Observation notes</p>
       <div className="student-modal__info-container">
         <div className="student-modal__profile">
@@ -59,7 +65,7 @@ export function Modal({
                           </div> */}
       </div>
       <div className="student-modal__all-notes">
-        <p>All notes</p>
+        <p>All notes {`(${student.notes.length})`}</p>
         <ul className="student-modal__notes-list">
           {student.notes.map((note, idx) => (
             <li key={idx}>{note}</li>
@@ -67,7 +73,6 @@ export function Modal({
         </ul>
       </div>
       <div className="student-modal__note-area">
-        <p>Notes {`(${student.notes.length})`}</p>
         <textarea
           className="student-modal__notes-field"
           name="note"
@@ -76,12 +81,7 @@ export function Modal({
           onKeyDown={(e) => handleKeyDown(e, student, student.id)}
         />
       </div>
-      <button
-        className="student-modal__btn-cancel"
-        onClick={() => setOpenModal(false)}
-      >
-        Cancel
-      </button>
+
       <button
         className="student-modal__btn-cancel"
         onClick={() => saveNote(student, student.id)}
