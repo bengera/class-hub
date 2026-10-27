@@ -29,6 +29,18 @@ export function Modal({
     setOpenModal(false);
   }
 
+  function handleKeyDown(
+    e: React.KeyboardEvent<HTMLTextAreaElement>,
+    student: Student,
+    studentId: string,
+  ) {
+    console.log("Key pressed");
+    if (e.key === "Enter" && e.ctrlKey) {
+      e.preventDefault();
+      saveNote(student, studentId);
+    }
+  }
+
   return (
     <div className="student-modal">
       <p>Observation notes</p>
@@ -61,6 +73,7 @@ export function Modal({
           name="note"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
+          onKeyDown={(e) => handleKeyDown(e, student, student.id)}
         />
       </div>
       <button

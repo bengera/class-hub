@@ -109,13 +109,13 @@ export function Register({
     setSelectedFilterVal(e.target.value);
   }
 
-  function runComparison(num: number, name: string) {
+  function runComparison(num: number) {
     const emptyCircles = Math.max(0, 5 - num);
-    if (emptyCircles === 0) {
-      console.log(`${name} has no empty circles`);
-    } else {
-      console.log(`${name} has ${emptyCircles} circles empty`);
-    }
+    // if (emptyCircles === 0) {
+    //   console.log(`${name} has no empty circles`);
+    // } else {
+    //   console.log(`${name} has ${emptyCircles} circles empty`);
+    // }
     return emptyCircles;
   }
 
@@ -168,7 +168,7 @@ export function Register({
   }
 
   function getFirstTwoLetters(fullName: string) {
-    console.log(fullName);
+    // console.log(fullName);
     return fullName
       .split(" ")
       .map((word) => word.charAt(0))
