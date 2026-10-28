@@ -5,8 +5,8 @@ import "./scss/main.scss";
 // TYPES
 import type { Student } from "./types/student";
 // COMPONENTS
-import { Register } from "./components/register";
-import { Header } from "./components/header";
+import { Register } from "./components/Register";
+import { Header } from "./components/Header";
 
 function App() {
   const [studentList, setStudentList] = useState<Student[]>(

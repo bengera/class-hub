@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Student } from "../types/student";
-import { Modal } from "./modal";
+import { Modal } from "./Modal";
 
 interface RegisterProps {
   studentList: Student[];

@@ -1,9 +1,44 @@
 @use "../abstracts/" as *;
 
-.dashboard__header {
+.header {
   // display: flex;
   // align-items: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
   border: 1px solid black;
+
+  &__logo {
+    display: flex;
+    flex-direction: row-reverse;
+    grid-column: 1;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+  }
+
+  &__center-content {
+    grid-column: 2/4;
+    align-content: center;
+  }
+
+  &__center-content > * {
+    margin: 0;
+  }
+
+  &__right-content {
+    grid-column: 4;
+    grid-row: 1;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__btn-start {
+  }
+}
+
+.logo-img {
+  height: 50px;
 }
