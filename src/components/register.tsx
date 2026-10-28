@@ -57,6 +57,7 @@ export function Register({
   const [search, setSearch] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
+  const [notes, setNotes] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -373,18 +374,22 @@ export function Register({
                     />
                   </td>
                   <td className="cell-notes">
-                    <img
-                      className="icon-note"
-                      src="note-icon.svg"
-                      alt="note icon"
-                      onClick={() => handleOpenModal(student.id)}
-                    />
-                    {/* {student.notes ? <p>{student.notes}</p> : null} */}
+                    <div className="cell-notes-inner">
+                      <img
+                        className="icon-note"
+                        src="note-icon.svg"
+                        alt="note icon"
+                        onClick={() => handleOpenModal(student.id)}
+                      />
+                      <span className="cell-notes-span">{`${student.notes.length}`}</span>
+                    </div>
                     {openModal && student.id === selectedStudentId ? (
                       <Modal
                         setStudentList={setStudentList}
                         student={student}
                         setOpenModal={setOpenModal}
+                        notes={notes}
+                        setNotes={setNotes}
                         getFirstTwoLetters={getFirstTwoLetters}
                       />
                     ) : null}

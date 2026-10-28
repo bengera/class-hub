@@ -1,10 +1,11 @@
-import { useState } from "react";
 import type { Student } from "../types/student";
 
 interface ModalProps {
   setStudentList: React.Dispatch<React.SetStateAction<Student[]>>;
   student: Student;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  notes: string;
+  setNotes: React.Dispatch<React.SetStateAction<string>>;
   getFirstTwoLetters: (fullName: string) => string;
 }
 
@@ -12,9 +13,10 @@ export function Modal({
   setStudentList,
   student,
   setOpenModal,
+  notes,
+  setNotes,
   getFirstTwoLetters,
 }: ModalProps) {
-  const [notes, setNotes] = useState<string>("");
   function saveNote(targetStudent: Student, id: string) {
     console.log(`You are saving a note for ${targetStudent.name}`);
 

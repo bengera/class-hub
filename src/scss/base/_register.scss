@@ -77,9 +77,21 @@
   }
 }
 
-// .cell-notes {
-//   display: flex;
-// }
+.cell-notes-inner {
+  position: relative;
+}
+
+.cell-notes-span {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: $color-profile-purple;
+  border-radius: $radius-full;
+  text-align: center;
+  font-size: 15px;
+  top: -7px;
+}
 
 .class-header__right-content,
 .class-header__right-content * {
