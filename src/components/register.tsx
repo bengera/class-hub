@@ -280,7 +280,7 @@ export function Register({
       <div className="student-register__names-list">
         <table>
           <thead>
-            <tr>
+            <tr className="top-row">
               {/* <th scope="col">#</th> */}
               {/* <th scope="col">Initials</th> */}
               <th scope="col">Student</th>
