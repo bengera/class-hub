@@ -27,10 +27,6 @@ table {
   border-collapse: collapse;
 }
 
-th {
-  padding: 1rem;
-}
-
 // th,
 // tr,
 // td {
@@ -65,18 +61,6 @@ td {
 .dashboard {
   border: 1px solid black;
   // width: 80vw;
-}
-
-.dashboard__header {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-}
-
-.sidebar {
-  border: 1px solid grey;
-  width: 200px;
-  padding: 1rem;
 }
 
 .logo-img {

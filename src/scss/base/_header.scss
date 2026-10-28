@@ -1,0 +1,9 @@
+@use "../abstracts/" as *;
+
+.dashboard__header {
+  // display: flex;
+  // align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid black;
+}
