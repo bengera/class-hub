@@ -381,7 +381,9 @@ export function Register({
                         alt="note icon"
                         onClick={() => handleOpenModal(student.id)}
                       />
-                      <span className="cell-notes-span">{`${student.notes.length}`}</span>
+                      {student.notes.length ? (
+                        <span className="cell-notes-span">{`${student.notes.length}`}</span>
+                      ) : null}
                     </div>
                     {openModal && student.id === selectedStudentId ? (
                       <Modal
