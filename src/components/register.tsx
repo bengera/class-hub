@@ -310,13 +310,15 @@ export function Register({
                   </th> */}
 
                   <th scope="row" className="student-register__row-name">
-                    <p className="index">{idx + 1}</p>
-                    <span
-                      className={`student-register__profile-initials ${student.profileColor}`}
-                    >
-                      {getFirstTwoLetters(student.name)}
-                    </span>
-                    {student.name}
+                    <div className="student-register__row-name-inner-wrapper">
+                      <p className="index">{idx + 1}</p>
+                      <span
+                        className={`student-register__profile-initials ${student.profileColor}`}
+                      >
+                        {getFirstTwoLetters(student.name)}
+                      </span>
+                      {student.name}
+                    </div>
                   </th>
 
                   <td className="student-register__participation-cell">
@@ -344,7 +346,7 @@ export function Register({
                     </div>
                   </td>
 
-                  <td>
+                  <td className="student-register__understanding-cell">
                     <select
                       className={`understanding understanding--${student.understanding}`}
                       value={student.understanding}

@@ -14,6 +14,9 @@
   }
 
   &__row-name {
+  }
+
+  &__row-name-inner-wrapper {
     display: flex;
     justify-items: center;
     align-items: center;
@@ -39,6 +42,10 @@
   }
 
   &__participation-cell {
+  }
+
+  &__understanding-cell {
+    width: 100px;
   }
 
   &__participation-cell-inner {
