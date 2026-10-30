@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Student } from "../types/student";
 import { Modal } from "./Modal";
 
@@ -58,6 +58,7 @@ export function Register({
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
+  const [toastMessage, setToastMessage] = useState<boolean>(false);
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -176,9 +177,22 @@ export function Register({
       .join("")
       .toUpperCase();
   }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("5 seconds passed");
+      setToastMessage(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [toastMessage]);
 
   return (
     <div className="student-register">
+      {toastMessage ? (
+        <div className="toast">
+          <p>Note Saved</p>
+          <p className="toast__message">The note has been added</p>
+        </div>
+      ) : null}
       <div className="student-register__toolbar">
         <div className="student-register__info">
           <h2>Live Student Observations</h2>
@@ -393,6 +407,7 @@ export function Register({
                         notes={notes}
                         setNotes={setNotes}
                         getFirstTwoLetters={getFirstTwoLetters}
+                        setToastMessage={setToastMessage}
                       />
                     ) : null}
                   </td>

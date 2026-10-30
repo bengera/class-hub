@@ -6,6 +6,7 @@ interface ModalProps {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   notes: string;
   setNotes: React.Dispatch<React.SetStateAction<string>>;
+  setToastMessage: React.Dispatch<React.SetStateAction<boolean>>;
   getFirstTwoLetters: (fullName: string) => string;
 }
 
@@ -16,6 +17,7 @@ export function Modal({
   notes,
   setNotes,
   getFirstTwoLetters,
+  setToastMessage,
 }: ModalProps) {
   function saveNote(targetStudent: Student, id: string) {
     console.log(`You are saving a note for ${targetStudent.name}`);
@@ -29,6 +31,7 @@ export function Modal({
     );
     setNotes("");
     setOpenModal(false);
+    setToastMessage(true);
   }
 
   function handleKeyDown(

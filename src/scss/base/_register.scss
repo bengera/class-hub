@@ -5,6 +5,7 @@
   margin: 1rem;
   border-radius: 5px;
   justify-items: left;
+  position: relative;
 
   &__index-cell {
     text-align: center;
@@ -251,4 +252,16 @@ $profile-colors: (
 
 .td-follow-up {
   text-align: center;
+}
+
+.toast {
+  position: absolute;
+  background-color: red;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 14px;
 }
