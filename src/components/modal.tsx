@@ -3,7 +3,7 @@ import type { Student } from "../types/student";
 interface ModalProps {
   setStudentList: React.Dispatch<React.SetStateAction<Student[]>>;
   student: Student;
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsNoteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   notes: string;
   setNotes: React.Dispatch<React.SetStateAction<string>>;
   setToastMessage: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,7 +13,7 @@ interface ModalProps {
 export function Modal({
   setStudentList,
   student,
-  setOpenModal,
+  setIsNoteModalOpen,
   notes,
   setNotes,
   getFirstTwoLetters,
@@ -30,7 +30,7 @@ export function Modal({
       ),
     );
     setNotes("");
-    setOpenModal(false);
+    setIsNoteModalOpen(false);
     setToastMessage(true);
   }
 
@@ -50,7 +50,7 @@ export function Modal({
     <div className="student-modal">
       <button
         className="student-modal__btn-close"
-        onClick={() => setOpenModal(false)}
+        onClick={() => setIsNoteModalOpen(false)}
       >
         ✖
       </button>

@@ -55,7 +55,9 @@ export function Register({
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("all");
   const [selectedQuickFilter, setSelectedQuickFilter] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isNoteModalOpen, setIsNoteModalOpen] = useState<boolean>(false);
+  const [isNewStudentModalOpen, setIsNewStudentModalOpen] =
+    useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [toastMessage, setToastMessage] = useState<boolean>(false);
@@ -166,7 +168,7 @@ export function Register({
   function handleOpenModal(id: string) {
     console.log("opening modal...");
     setSelectedStudentId(id);
-    setOpenModal(true);
+    setIsNoteModalOpen(true);
   }
 
   function getFirstTwoLetters(fullName: string) {
@@ -179,7 +181,6 @@ export function Register({
   }
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log("5 seconds passed");
       setToastMessage(false);
     }, 5000);
     return () => clearTimeout(timer);
@@ -399,11 +400,11 @@ export function Register({
                         <span className="cell-notes-span">{`${student.notes.length}`}</span>
                       ) : null}
                     </div>
-                    {openModal && student.id === selectedStudentId ? (
+                    {isNoteModalOpen && student.id === selectedStudentId ? (
                       <Modal
                         setStudentList={setStudentList}
                         student={student}
-                        setOpenModal={setOpenModal}
+                        setIsNoteModalOpen={setIsNoteModalOpen}
                         notes={notes}
                         setNotes={setNotes}
                         getFirstTwoLetters={getFirstTwoLetters}
@@ -417,6 +418,7 @@ export function Register({
           </tbody>
         </table>
       </div>
+      <button className="button">Add student +</button>
     </div>
   );
 }
