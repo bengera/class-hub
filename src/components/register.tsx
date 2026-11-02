@@ -188,6 +188,9 @@ export function Register({
 
   return (
     <div className="student-register">
+      {isNewStudentModalOpen ? (
+        <div className="new-student-modal">student modal</div>
+      ) : null}
       {toastMessage ? (
         <div className="toast">
           <p>Note Saved</p>
@@ -418,7 +421,9 @@ export function Register({
           </tbody>
         </table>
       </div>
-      <button className="button">Add student +</button>
+      <button className="button" onClick={() => setIsNewStudentModalOpen(true)}>
+        Add student +
+      </button>
     </div>
   );
 }
