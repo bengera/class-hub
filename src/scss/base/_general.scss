@@ -71,17 +71,21 @@ td {
 ////////////////TEMP //////////////////////
 ///
 ///
-.student-modal {
-  width: 518px;
-  // height: 354px;
+//
+
+.modal {
   background-color: rgb(221, 220, 220);
   border: 2px solid black;
+  padding: 1.5rem;
+  width: 518px;
+}
+
+.student-modal {
   z-index: 100;
   position: absolute;
   top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1.5rem;
 
   &__info-container {
     display: flex;
@@ -112,7 +116,6 @@ td {
 }
 
 .new-student-modal {
-  background-color: red;
   width: 400px;
   height: 300px;
   position: absolute;

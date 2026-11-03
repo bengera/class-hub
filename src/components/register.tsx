@@ -12,45 +12,49 @@ interface RegisterProps {
 export function Register({
   studentList,
   setStudentList,
-  // newStudent,
-  // setNewStudent,
+  newStudent,
+  setNewStudent,
 }: RegisterProps) {
-  // function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
-  //   e.preventDefault();
+  function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+    console.log(e);
 
-  //   const profileColors = [
-  //     "profilePink",
-  //     "profilePurple",
-  //     "profileTeal",
-  //     "profileSky",
-  //     "profileOrange",
-  //     "profileGreen",
-  //     "profileIndigo",
-  //     "profileRed",
-  //     "profileCyan",
-  //     "profileAmber",
-  //     "profileViolet",
-  //     "profileRose",
-  //   ];
+    const profileColors = [
+      "profilePink",
+      "profilePurple",
+      "profileTeal",
+      "profileSky",
+      "profileOrange",
+      "profileGreen",
+      "profileIndigo",
+      "profileRed",
+      "profileCyan",
+      "profileAmber",
+      "profileViolet",
+      "profileRose",
+    ];
 
-  //   const randomIndex = Math.floor(Math.random() * profileColors.length);
-  //   const randomColor = profileColors[randomIndex];
-  //   const capitilzedName =
-  //     newStudent.charAt(0).toUpperCase() + newStudent.slice(1);
+    const randomIndex = Math.floor(Math.random() * profileColors.length);
+    const randomColor = profileColors[randomIndex];
+    const capitilzedName =
+      newStudent.charAt(0).toUpperCase() + newStudent.slice(1);
 
-  //   const newStudentData: Student = {
-  //     id: crypto.randomUUID(),
-  //     name: capitilzedName.trim(),
-  //     participation: 0,
-  //     understanding: "developing",
-  //     followUp: false,
-  //     notes: [],
-  //     profileColor: randomColor,
-  //   };
+    const newStudentData: Student = {
+      id: crypto.randomUUID(),
+      name: newStudent,
+      nameInitials: capitilzedName.trim(),
+      participation: 0,
+      understanding: "developing",
+      followUp: false,
+      notes: [],
+      profileColor: randomColor,
+    };
 
-  //   setStudentList((prevList) => [...prevList, newStudentData]);
-  //   setNewStudent("");
-  // }
+    setStudentList((prevList) => [...prevList, newStudentData]);
+    console.log(newStudentData);
+    setNewStudent("");
+    setIsNewStudentModalOpen(false);
+  }
 
   const [selectedFilterVal, setSelectedFilterVal] = useState<string>("all");
   const [selectedQuickFilter, setSelectedQuickFilter] = useState<string>("all");
@@ -115,11 +119,7 @@ export function Register({
 
   function runComparison(num: number) {
     const emptyCircles = Math.max(0, 5 - num);
-    // if (emptyCircles === 0) {
-    //   console.log(`${name} has no empty circles`);
-    // } else {
-    //   console.log(`${name} has ${emptyCircles} circles empty`);
-    // }
+
     return emptyCircles;
   }
 
@@ -189,7 +189,19 @@ export function Register({
   return (
     <div className="student-register">
       {isNewStudentModalOpen ? (
-        <div className="new-student-modal">student modal</div>
+        <div className="modal new-student-modal">
+          <h2>Add New Student</h2>
+          <form onSubmit={handleAddStudent}>
+            <label htmlFor="student">Full name:</label>
+            <input
+              type="text"
+              value={newStudent}
+              onChange={(e) => setNewStudent(e.target.value)}
+            />
+
+            <button>Add Student</button>
+          </form>
+        </div>
       ) : null}
       {toastMessage ? (
         <div className="toast">
@@ -266,16 +278,6 @@ export function Register({
           </button>
         </div>
 
-        {/* <form className="add-students" onSubmit={handleAddStudent}>
-          <label htmlFor="student name"></label>
-          <input
-            type="text"
-            placeholder="Bob"
-            value={newStudent}
-            onChange={(e) => setNewStudent(e.target.value)}
-          />
-          <button className="student-register__add-btn">Add Student</button>
-        </form> */}
         <select
           value={selectedFilterVal}
           onChange={handleChangeFilter}
@@ -298,6 +300,11 @@ export function Register({
       </div>
       <div className="student-register__names-list">
         <table>
+          {sortedStudents.length === 0 && (
+            <tr>
+              <td colSpan={5}>No students found</td>
+            </tr>
+          )}
           <thead>
             <tr className="top-row">
               {/* <th scope="col">#</th> */}
@@ -316,18 +323,6 @@ export function Register({
 
               return (
                 <tr key={student.id}>
-                  {/* <td className="student-register__index-cell">
-                    <p className="index">{idx + 1}</p>
-                  </td> */}
-
-                  {/* <th scope="row" className="student-register">
-                    <span
-                      className={`student-register__profile-initials ${student.profileColor}`}
-                    >
-                      {getFirstTwoLetters(student.name)}
-                    </span>
-                  </th> */}
-
                   <th scope="row" className="student-register__row-name">
                     <div className="student-register__row-name-inner-wrapper">
                       <p className="index">{idx + 1}</p>

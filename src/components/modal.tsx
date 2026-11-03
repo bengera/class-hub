@@ -47,7 +47,7 @@ export function Modal({
   }
 
   return (
-    <div className="student-modal">
+    <div className="modal student-modal">
       <button
         className="student-modal__btn-close"
         onClick={() => setIsNoteModalOpen(false)}
