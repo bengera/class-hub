@@ -188,7 +188,7 @@ export function Register({
 
   return (
     <div className="student-register">
-      {isNewStudentModalOpen ? (
+      {isNewStudentModalOpen && (
         <div className="modal new-student-modal">
           <h2>Add New Student</h2>
           <form onSubmit={handleAddStudent}>
@@ -202,7 +202,7 @@ export function Register({
             <button>Add Student</button>
           </form>
         </div>
-      ) : null}
+      )}
       {toastMessage ? (
         <div className="toast">
           <p>Note Saved</p>
