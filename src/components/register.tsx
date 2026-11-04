@@ -314,6 +314,7 @@ export function Register({
               <th scope="col">Understanding</th>
               <th scope="col">Follow-up</th>
               <th scope="col">Notes</th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -409,6 +410,13 @@ export function Register({
                         setToastMessage={setToastMessage}
                       />
                     ) : null}
+                  </td>
+                  <td className="edit-cell">
+                    <img
+                      className="edit-icon"
+                      src="edit-icon.svg"
+                      alt="edit icon"
+                    />
                   </td>
                 </tr>
               );
