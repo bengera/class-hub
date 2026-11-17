@@ -78,15 +78,14 @@ td {
   border: 2px solid black;
   padding: 1.5rem;
   width: 518px;
-}
-
-.student-modal {
   z-index: 100;
   position: absolute;
   top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
 
+.student-modal {
   &__info-container {
     display: flex;
     // border: 1px solid black;
@@ -110,24 +109,33 @@ td {
 
   &__btn-close {
     position: absolute;
-    right: 10px;
+
     padding: 0.5rem;
+    right: 9px;
+    top: 8px;
   }
+}
+
+.bottom-buttons-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .new-student-modal {
   width: 400px;
   height: 300px;
-  position: absolute;
-  top: 33%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .edit-cell {
+  padding: 1rem;
 }
 
 .edit-icon {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.edit-student-modal {
 }

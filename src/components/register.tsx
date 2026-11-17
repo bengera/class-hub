@@ -62,6 +62,8 @@ export function Register({
   const [isNoteModalOpen, setIsNoteModalOpen] = useState<boolean>(false);
   const [isNewStudentModalOpen, setIsNewStudentModalOpen] =
     useState<boolean>(false);
+  const [isEditStudentModalOpen, setIsEditStudentModalOpen] =
+    useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [toastMessage, setToastMessage] = useState<boolean>(false);
@@ -171,6 +173,13 @@ export function Register({
     setIsNoteModalOpen(true);
   }
 
+  function handleOpenEditModal(id: string) {
+    console.log("opening student modal");
+    console.log(id);
+    setSelectedStudentId(id);
+    setIsEditStudentModalOpen(true);
+  }
+
   function getFirstTwoLetters(fullName: string) {
     // console.log(fullName);
     return fullName
@@ -200,6 +209,12 @@ export function Register({
             />
 
             <button>Add Student</button>
+            <button
+              className="student-modal__btn-close"
+              onClick={() => setIsNewStudentModalOpen(false)}
+            >
+              ✖
+            </button>
           </form>
         </div>
       )}
@@ -416,7 +431,24 @@ export function Register({
                       className="edit-icon"
                       src="edit-icon.svg"
                       alt="edit icon"
+                      onClick={() => handleOpenEditModal(student.id)}
                     />
+
+                    {isEditStudentModalOpen &&
+                    student.id === selectedStudentId ? (
+                      <div className="modal edit-student-modal">
+                        <h2>{selectedStudentId}</h2>
+                        <form>
+                          <button>Save changes</button>
+                        </form>
+                        <button
+                          className="student-modal__btn-close"
+                          onClick={() => setIsEditStudentModalOpen(false)}
+                        >
+                          ✖
+                        </button>
+                      </div>
+                    ) : null}
                   </td>
                 </tr>
               );
@@ -424,9 +456,14 @@ export function Register({
           </tbody>
         </table>
       </div>
-      <button className="button" onClick={() => setIsNewStudentModalOpen(true)}>
-        Add student +
-      </button>
+      <div className="bottom-buttons-container">
+        <button
+          className="button"
+          onClick={() => setIsNewStudentModalOpen(true)}
+        >
+          Add student +
+        </button>
+      </div>
     </div>
   );
 }

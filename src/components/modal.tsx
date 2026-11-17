@@ -65,9 +65,6 @@ export function Modal({
           </span>
         </div>
         <p className="student-modal__name">{student.name}</p>
-        {/* <div className="student-modal__support">
-                            {student.understanding}
-                          </div> */}
       </div>
       <div className="student-modal__all-notes">
         <p>All notes {`(${student.notes.length})`}</p>
