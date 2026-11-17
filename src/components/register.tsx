@@ -437,7 +437,7 @@ export function Register({
                     {isEditStudentModalOpen &&
                     student.id === selectedStudentId ? (
                       <div className="modal edit-student-modal">
-                        <h2>{selectedStudentId}</h2>
+                        <h2>{student.name}</h2>
                         <form>
                           <button>Save changes</button>
                         </form>
