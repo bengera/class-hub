@@ -67,6 +67,7 @@ export function Register({
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [toastMessage, setToastMessage] = useState<boolean>(false);
+  const [newName, setNewName] = useState<string>("");
 
   const filteredNames = studentList.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase().trim()),
@@ -180,6 +181,19 @@ export function Register({
     setIsEditStudentModalOpen(true);
   }
 
+  function handleEditName(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStudentList((prev) =>
+      prev.map((student) =>
+        student.id === selectedStudentId
+          ? { ...student, name: newName }
+          : student,
+      ),
+    );
+    setIsEditStudentModalOpen(false);
+    setNewName("");
+  }
+
   function getFirstTwoLetters(fullName: string) {
     // console.log(fullName);
     return fullName
@@ -188,6 +202,7 @@ export function Register({
       .join("")
       .toUpperCase();
   }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setToastMessage(false);
@@ -438,15 +453,23 @@ export function Register({
                     student.id === selectedStudentId ? (
                       <div className="modal edit-student-modal">
                         <h2>{student.name}</h2>
-                        <form>
+                        <form onSubmit={handleEditName}>
+                          <label htmlFor="student">Edit name:</label>
+                          <input
+                            type="text"
+                            value={newName}
+                            onChange={(e) => setNewName(e.target.value)}
+                          />
+
                           <button>Save changes</button>
+                          <button
+                            className="student-modal__btn-close"
+                            type="button"
+                            onClick={() => setIsEditStudentModalOpen(false)}
+                          >
+                            ✖
+                          </button>
                         </form>
-                        <button
-                          className="student-modal__btn-close"
-                          onClick={() => setIsEditStudentModalOpen(false)}
-                        >
-                          ✖
-                        </button>
                       </div>
                     ) : null}
                   </td>
