@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Student } from "../types/student";
-import { Modal } from "./Modal";
+import { AddStudentModal } from "./modals/addStudentModal";
 
 interface RegisterProps {
   studentList: Student[];
@@ -430,7 +430,7 @@ export function Register({
                       ) : null}
                     </div>
                     {isNoteModalOpen && student.id === selectedStudentId ? (
-                      <Modal
+                      <AddStudentModal
                         setStudentList={setStudentList}
                         student={student}
                         setIsNoteModalOpen={setIsNoteModalOpen}

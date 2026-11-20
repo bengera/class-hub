@@ -1,4 +1,4 @@
-import type { Student } from "../types/student";
+import type { Student } from "../../types/student.ts";
 
 interface ModalProps {
   setStudentList: React.Dispatch<React.SetStateAction<Student[]>>;
@@ -10,7 +10,7 @@ interface ModalProps {
   getFirstTwoLetters: (fullName: string) => string;
 }
 
-export function Modal({
+export function AddStudentModal({
   setStudentList,
   student,
   setIsNoteModalOpen,
