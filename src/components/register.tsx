@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Student } from "../types/student";
 import { AddStudentModal } from "./modals/addStudentModal";
+import { EditStudentModal } from "./modals/EditStudentModal";
 
 interface RegisterProps {
   studentList: Student[];
@@ -176,7 +177,6 @@ export function Register({
 
   function handleOpenEditModal(id: string) {
     console.log("opening student modal");
-    console.log(id);
     setSelectedStudentId(id);
     setIsEditStudentModalOpen(true);
   }
@@ -451,26 +451,13 @@ export function Register({
 
                     {isEditStudentModalOpen &&
                     student.id === selectedStudentId ? (
-                      <div className="modal edit-student-modal">
-                        <h2>{student.name}</h2>
-                        <form onSubmit={handleEditName}>
-                          <label htmlFor="student">Edit name:</label>
-                          <input
-                            type="text"
-                            value={newName}
-                            onChange={(e) => setNewName(e.target.value)}
-                          />
-
-                          <button>Save changes</button>
-                          <button
-                            className="student-modal__btn-close"
-                            type="button"
-                            onClick={() => setIsEditStudentModalOpen(false)}
-                          >
-                            ✖
-                          </button>
-                        </form>
-                      </div>
+                      <EditStudentModal
+                        handleEditName={handleEditName}
+                        setNewName={setNewName}
+                        setIsEditStudentModalOpen={setIsEditStudentModalOpen}
+                        student={student}
+                        newName={newName}
+                      />
                     ) : null}
                   </td>
                 </tr>
