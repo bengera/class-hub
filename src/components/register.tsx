@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Student } from "../types/student";
-import { AddStudentModal } from "./modals/addStudentModal";
+import { AddStudentModal } from "./modals/AddStudentModal";
 import { EditStudentModal } from "./modals/EditStudentModal";
+import { NotesModal } from "./modals/NotesModal";
 
 interface RegisterProps {
   studentList: Student[];
@@ -213,25 +214,12 @@ export function Register({
   return (
     <div className="student-register">
       {isNewStudentModalOpen && (
-        <div className="modal new-student-modal">
-          <h2>Add New Student</h2>
-          <form onSubmit={handleAddStudent}>
-            <label htmlFor="student">Full name:</label>
-            <input
-              type="text"
-              value={newStudent}
-              onChange={(e) => setNewStudent(e.target.value)}
-            />
-
-            <button>Add Student</button>
-            <button
-              className="student-modal__btn-close"
-              onClick={() => setIsNewStudentModalOpen(false)}
-            >
-              ✖
-            </button>
-          </form>
-        </div>
+        <NotesModal
+          handleAddStudent={handleAddStudent}
+          newStudent={newStudent}
+          setNewStudent={setNewStudent}
+          setIsNewStudentModalOpen={setIsEditStudentModalOpen}
+        />
       )}
       {toastMessage ? (
         <div className="toast">
