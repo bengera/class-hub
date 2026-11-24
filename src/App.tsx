@@ -13,9 +13,11 @@ function App() {
     data.studentlist as Student[],
   );
   const [newStudent, setNewStudent] = useState<string>("");
+  const [overlay, setOverlay] = useState<boolean>(false);
 
   return (
     <div className="app">
+      <div className={overlay === true ? "overlay show" : "overlay"}></div>
       <main className="dashboard">
         <Header />
         <Register
@@ -23,6 +25,7 @@ function App() {
           setStudentList={setStudentList}
           newStudent={newStudent}
           setNewStudent={setNewStudent}
+          setOverlay={setOverlay}
         />
       </main>
     </div>

@@ -9,6 +9,8 @@ interface RegisterProps {
   setStudentList: React.Dispatch<React.SetStateAction<Student[]>>;
   newStudent: string;
   setNewStudent: React.Dispatch<React.SetStateAction<string>>;
+  overlay: boolean;
+  setOverlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function Register({
@@ -16,6 +18,8 @@ export function Register({
   setStudentList,
   newStudent,
   setNewStudent,
+
+  setOverlay,
 }: RegisterProps) {
   function handleAddStudent(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -174,6 +178,7 @@ export function Register({
     console.log("opening modal...");
     setSelectedStudentId(id);
     setIsNoteModalOpen(true);
+    setOverlay(true);
   }
 
   function handleOpenEditModal(id: string) {
@@ -432,6 +437,7 @@ export function Register({
                         setNotes={setNotes}
                         getFirstTwoLetters={getFirstTwoLetters}
                         setToastMessage={setToastMessage}
+                        setOverlay={setOverlay}
                       />
                     ) : null}
                   </td>
