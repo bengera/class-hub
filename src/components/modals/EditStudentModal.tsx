@@ -2,6 +2,7 @@ import type { Student } from "../../types/student.ts";
 
 interface ModalProps {
   handleEditName: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleDeleteStudent: (id: string) => void;
   setNewName: React.Dispatch<React.SetStateAction<string>>;
   setIsEditStudentModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   student: Student;
@@ -10,6 +11,7 @@ interface ModalProps {
 
 export function EditStudentModal({
   handleEditName,
+  handleDeleteStudent,
   setNewName,
   setIsEditStudentModalOpen,
   student,
@@ -26,7 +28,10 @@ export function EditStudentModal({
           onChange={(e) => setNewName(e.target.value)}
         />
 
-        <button>Save changes</button>
+        <button type="submit">Save changes</button>
+        <button type="button" onClick={() => handleDeleteStudent(student.id)}>
+          Delete student
+        </button>
         <button
           className="student-modal__btn-close"
           type="button"

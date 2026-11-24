@@ -195,6 +195,12 @@ export function Register({
     setNewName("");
   }
 
+  function handleDeleteStudent(id: string) {
+    console.log("handling deleting student");
+    const updatedList = studentList.filter((student) => student.id !== id);
+    setStudentList(updatedList);
+  }
+
   function getFirstTwoLetters(fullName: string) {
     // console.log(fullName);
     return fullName
@@ -441,6 +447,7 @@ export function Register({
                     student.id === selectedStudentId ? (
                       <EditStudentModal
                         handleEditName={handleEditName}
+                        handleDeleteStudent={handleDeleteStudent}
                         setNewName={setNewName}
                         setIsEditStudentModalOpen={setIsEditStudentModalOpen}
                         student={student}
