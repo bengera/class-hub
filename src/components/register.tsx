@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Student } from "../types/student";
-import { AddStudentModal } from "./modals/AddStudentModal";
+import { AddStudentModal } from "./modals/addStudentModal";
 import { EditStudentModal } from "./modals/EditStudentModal";
 import { NotesModal } from "./modals/NotesModal";
 
@@ -9,7 +9,6 @@ interface RegisterProps {
   setStudentList: React.Dispatch<React.SetStateAction<Student[]>>;
   newStudent: string;
   setNewStudent: React.Dispatch<React.SetStateAction<string>>;
-  overlay: boolean;
   setOverlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -178,7 +177,6 @@ export function Register({
     console.log("opening modal...");
     setSelectedStudentId(id);
     setIsNoteModalOpen(true);
-    setOverlay(true);
   }
 
   function handleOpenEditModal(id: string) {
@@ -222,6 +220,17 @@ export function Register({
     return () => clearTimeout(timer);
   }, [toastMessage]);
 
+  useEffect(() => {
+    setOverlay(
+      isNewStudentModalOpen || isNoteModalOpen || isEditStudentModalOpen,
+    );
+  }, [
+    isNewStudentModalOpen,
+    isNoteModalOpen,
+    isEditStudentModalOpen,
+    setOverlay,
+  ]);
+
   return (
     <div className="student-register">
       {isNewStudentModalOpen && (
@@ -229,7 +238,7 @@ export function Register({
           handleAddStudent={handleAddStudent}
           newStudent={newStudent}
           setNewStudent={setNewStudent}
-          setIsNewStudentModalOpen={setIsEditStudentModalOpen}
+          setIsNewStudentModalOpen={setIsNewStudentModalOpen}
         />
       )}
       {toastMessage ? (
@@ -437,7 +446,6 @@ export function Register({
                         setNotes={setNotes}
                         getFirstTwoLetters={getFirstTwoLetters}
                         setToastMessage={setToastMessage}
-                        setOverlay={setOverlay}
                       />
                     ) : null}
                   </td>
