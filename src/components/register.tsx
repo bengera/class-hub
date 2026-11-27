@@ -234,7 +234,7 @@ export function Register({
   return (
     <div className="student-register">
       {isNewStudentModalOpen && (
-        <NotesModal
+        <AddStudentModal
           handleAddStudent={handleAddStudent}
           newStudent={newStudent}
           setNewStudent={setNewStudent}
@@ -438,7 +438,7 @@ export function Register({
                       ) : null}
                     </div>
                     {isNoteModalOpen && student.id === selectedStudentId ? (
-                      <AddStudentModal
+                      <NotesModal
                         setStudentList={setStudentList}
                         student={student}
                         setIsNoteModalOpen={setIsNoteModalOpen}

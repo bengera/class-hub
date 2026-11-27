@@ -60,7 +60,7 @@ td {
 
 .dashboard {
   border: 1px solid black;
-  max-width: 900px;
+  // max-width: 900px;
 }
 
 .top-row {
@@ -154,4 +154,33 @@ td {
 }
 
 .edit-student-modal {
+}
+
+/// OVERVIEW RIGHT SIDE SECTION
+
+.overview {
+  border: 1px solid black;
+  width: 40%;
+  margin-left: auto;
+}
+
+.number-data {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.sections {
+  display: flex;
 }

@@ -11,6 +11,13 @@ export function AddStudentModal({
   setNewStudent,
   setIsNewStudentModalOpen,
 }: StudentModalProps) {
+  function capitlizeName(name: string) {
+    return name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
   return (
     <div className="modal new-student-modal">
       <h2>Add New Student</h2>
@@ -19,13 +26,19 @@ export function AddStudentModal({
         <input
           type="text"
           value={newStudent}
-          onChange={(e) => setNewStudent(e.target.value)}
+          onChange={(e) => {
+            console.log("Event fired");
+            const formattedName = capitlizeName(e.target.value);
+            console.log(formattedName);
+            setNewStudent(formattedName);
+          }}
         />
 
         <button>Add Student</button>
         <button
           className="student-modal__btn-close"
           onClick={() => setIsNewStudentModalOpen(false)}
+          type="button"
         >
           ✖
         </button>

@@ -7,6 +7,7 @@ import type { Student } from "./types/student";
 // COMPONENTS
 import { Register } from "./components/Register";
 import { Header } from "./components/Header";
+import { Overview } from "./components/Overview";
 
 function App() {
   const [studentList, setStudentList] = useState<Student[]>(
@@ -20,13 +21,16 @@ function App() {
       <div className={overlay === true ? "overlay show" : "overlay"}></div>
       <main className="dashboard">
         <Header />
-        <Register
-          studentList={studentList}
-          setStudentList={setStudentList}
-          newStudent={newStudent}
-          setNewStudent={setNewStudent}
-          setOverlay={setOverlay}
-        />
+        <div className="sections">
+          <Register
+            studentList={studentList}
+            setStudentList={setStudentList}
+            newStudent={newStudent}
+            setNewStudent={setNewStudent}
+            setOverlay={setOverlay}
+          />
+          <Overview />
+        </div>
       </main>
     </div>
   );
